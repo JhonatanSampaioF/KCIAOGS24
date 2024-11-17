@@ -15,7 +15,7 @@ import java.util.Optional;
 public interface EnderecoController {
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    ResponseEntity<Optional<EnderecoResponseDto>> buscarEndereco(@PathVariable @Valid String id);
+    ResponseEntity<Optional<EnderecoResponseDto>> buscarEndereco(@PathVariable @Valid Integer id);
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
@@ -27,9 +27,9 @@ public interface EnderecoController {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    ResponseEntity<Optional<EnderecoResponseDto>> atualizarEndereco(@PathVariable @Valid String id, @RequestBody @Valid EnderecoRequestDto endereco);
+    ResponseEntity<Optional<EnderecoResponseDto>> atualizarEndereco(@PathVariable @Valid Integer id, @RequestBody @Valid EnderecoRequestDto endereco);
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    void deletarEndereco(@PathVariable @Valid String id);
+    void deletarEndereco(@PathVariable @Valid Integer id);
 }

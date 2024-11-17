@@ -10,8 +10,8 @@ import java.util.Optional;
 @Service
 public interface CrudEnergiaSolar {
     EnergiaSolarResponseDto save(EnergiaSolarRequestDto energiaSolarRequestDto);
-    Optional<EnergiaSolarResponseDto> findById(int id);
+    Optional<EnergiaSolarResponseDto> findById(Integer id);
     List<EnergiaSolarResponseDto> findAll();
-    Optional<EnergiaSolarResponseDto> update(int id, EnergiaSolarRequestDto energiaSolarRequestDto);
-    void delete(int id);
+    Optional<EnergiaSolarResponseDto> update(Integer id, EnergiaSolarRequestDto energiaSolarRequestDto);
+    void delete(Integer id);
 }

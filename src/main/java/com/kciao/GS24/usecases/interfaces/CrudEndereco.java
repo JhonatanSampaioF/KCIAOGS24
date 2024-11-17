@@ -10,8 +10,8 @@ import java.util.Optional;
 @Service
 public interface CrudEndereco {
     EnderecoResponseDto save(EnderecoRequestDto enderecoRequestDto);
-    Optional<EnderecoResponseDto> findById(int id);
+    Optional<EnderecoResponseDto> findById(Integer id);
     List<EnderecoResponseDto> findAll();
-    Optional<EnderecoResponseDto> update(int id, EnderecoRequestDto enderecoRequestDto);
-    void delete(int id);
+    Optional<EnderecoResponseDto> update(Integer id, EnderecoRequestDto enderecoRequestDto);
+    void delete(Integer id);
 }

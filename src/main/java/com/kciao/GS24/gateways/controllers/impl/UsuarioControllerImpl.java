@@ -14,7 +14,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class UsuarioControllerImpl implements UsuarioController {
     @Override
-    public ResponseEntity<Optional<UsuarioResponseDto>> buscarUsuario(String id) {
+    public ResponseEntity<Optional<UsuarioResponseDto>> buscarUsuario(Integer id) {
         return null;
     }
 
@@ -29,12 +29,12 @@ public class UsuarioControllerImpl implements UsuarioController {
     }
 
     @Override
-    public ResponseEntity<Optional<UsuarioResponseDto>> atualizarUsuario(String id, UsuarioRequestDto usuario) {
+    public ResponseEntity<Optional<UsuarioResponseDto>> atualizarUsuario(Integer id, UsuarioRequestDto usuario) {
         return null;
     }
 
     @Override
-    public void deletarUsuario(String id) {
+    public void deletarUsuario(Integer id) {
 
     }
 }

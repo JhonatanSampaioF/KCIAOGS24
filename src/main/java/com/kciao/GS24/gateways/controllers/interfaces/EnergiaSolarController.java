@@ -15,7 +15,7 @@ import java.util.Optional;
 public interface EnergiaSolarController {
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    ResponseEntity<Optional<EnergiaSolarResponseDto>> buscarEnergiaSolar(@PathVariable @Valid String id);
+    ResponseEntity<Optional<EnergiaSolarResponseDto>> buscarEnergiaSolar(@PathVariable @Valid Integer id);
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
@@ -27,9 +27,9 @@ public interface EnergiaSolarController {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    ResponseEntity<Optional<EnergiaSolarResponseDto>> atualizarEnergiaSolar(@PathVariable @Valid String id, @RequestBody @Valid EnergiaSolarRequestDto energiaSolar);
+    ResponseEntity<Optional<EnergiaSolarResponseDto>> atualizarEnergiaSolar(@PathVariable @Valid Integer id, @RequestBody @Valid EnergiaSolarRequestDto energiaSolar);
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    void deletarEnergiaSolar(@PathVariable @Valid String id);
+    void deletarEnergiaSolar(@PathVariable @Valid Integer id);
 }

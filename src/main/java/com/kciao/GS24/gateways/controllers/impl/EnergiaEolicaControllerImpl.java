@@ -14,7 +14,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class EnergiaEolicaControllerImpl implements EnergiaEolicaController {
     @Override
-    public ResponseEntity<Optional<EnergiaEolicaResponseDto>> buscarEnergiaEolica(String id) {
+    public ResponseEntity<Optional<EnergiaEolicaResponseDto>> buscarEnergiaEolica(Integer id) {
         return null;
     }
 
@@ -29,12 +29,12 @@ public class EnergiaEolicaControllerImpl implements EnergiaEolicaController {
     }
 
     @Override
-    public ResponseEntity<Optional<EnergiaEolicaResponseDto>> atualizarEnergiaEolica(String id, EnergiaEolicaRequestDto energiaEolica) {
+    public ResponseEntity<Optional<EnergiaEolicaResponseDto>> atualizarEnergiaEolica(Integer id, EnergiaEolicaRequestDto energiaEolica) {
         return null;
     }
 
     @Override
-    public void deletarEnergiaEolica(String id) {
+    public void deletarEnergiaEolica(Integer id) {
 
     }
 }

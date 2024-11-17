@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class EnergiaSolar {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Integer id;
     @Column(name = "area_placa")
     private int areaPlaca;
     @Column(name = "energia_necessaria")

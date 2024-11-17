@@ -15,7 +15,7 @@ import java.util.Optional;
 public class EnderecoControllerImpl implements EnderecoController {
 
     @Override
-    public ResponseEntity<Optional<EnderecoResponseDto>> buscarEndereco(String id) {
+    public ResponseEntity<Optional<EnderecoResponseDto>> buscarEndereco(Integer id) {
         return null;
     }
 
@@ -30,12 +30,12 @@ public class EnderecoControllerImpl implements EnderecoController {
     }
 
     @Override
-    public ResponseEntity<Optional<EnderecoResponseDto>> atualizarEndereco(String id, EnderecoRequestDto endereco) {
+    public ResponseEntity<Optional<EnderecoResponseDto>> atualizarEndereco(Integer id, EnderecoRequestDto endereco) {
         return null;
     }
 
     @Override
-    public void deletarEndereco(String id) {
+    public void deletarEndereco(Integer id) {
 
     }
 }

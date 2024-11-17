@@ -15,7 +15,7 @@ import java.util.Optional;
 public interface UsuarioController {
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    ResponseEntity<Optional<UsuarioResponseDto>> buscarUsuario(@PathVariable @Valid String id);
+    ResponseEntity<Optional<UsuarioResponseDto>> buscarUsuario(@PathVariable @Valid Integer id);
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
@@ -27,9 +27,9 @@ public interface UsuarioController {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    ResponseEntity<Optional<UsuarioResponseDto>> atualizarUsuario(@PathVariable @Valid String id, @RequestBody @Valid UsuarioRequestDto usuario);
+    ResponseEntity<Optional<UsuarioResponseDto>> atualizarUsuario(@PathVariable @Valid Integer id, @RequestBody @Valid UsuarioRequestDto usuario);
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    void deletarUsuario(@PathVariable @Valid String id);
+    void deletarUsuario(@PathVariable @Valid Integer id);
 }

@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class EnergiaEolica {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Integer id;
     @Column(name = "potencia_nominal")
     private Double potenciaNominal;
     @Column(name = "altura_torre")

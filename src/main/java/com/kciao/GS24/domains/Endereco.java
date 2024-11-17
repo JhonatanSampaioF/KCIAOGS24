@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class Endereco {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Integer id;
     @Column(name = "tipo_residencial")
     private String tipoResidencial;
     private String cep;

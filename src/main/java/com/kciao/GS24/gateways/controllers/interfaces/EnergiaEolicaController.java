@@ -15,7 +15,7 @@ import java.util.Optional;
 public interface EnergiaEolicaController {
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    ResponseEntity<Optional<EnergiaEolicaResponseDto>> buscarEnergiaEolica(@PathVariable @Valid String id);
+    ResponseEntity<Optional<EnergiaEolicaResponseDto>> buscarEnergiaEolica(@PathVariable @Valid Integer id);
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
@@ -27,9 +27,9 @@ public interface EnergiaEolicaController {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    ResponseEntity<Optional<EnergiaEolicaResponseDto>> atualizarEnergiaEolica(@PathVariable @Valid String id, @RequestBody @Valid EnergiaEolicaRequestDto energiaEolica);
+    ResponseEntity<Optional<EnergiaEolicaResponseDto>> atualizarEnergiaEolica(@PathVariable @Valid Integer id, @RequestBody @Valid EnergiaEolicaRequestDto energiaEolica);
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    void deletarEnergiaEolica(@PathVariable @Valid String id);
+    void deletarEnergiaEolica(@PathVariable @Valid Integer id);
 }

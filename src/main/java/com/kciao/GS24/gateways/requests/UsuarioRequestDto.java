@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 
 @Data
-public class UsuarioRequestoDto {
+public class UsuarioRequestDto {
     @NotEmpty @Min(3)
     private String nome;
     @NotEmpty @Email

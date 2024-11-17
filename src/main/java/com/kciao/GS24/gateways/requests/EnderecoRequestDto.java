@@ -7,7 +7,7 @@ import org.springframework.format.annotation.NumberFormat;
 
 @Data
 
-public class EnderecoRequestoDto {
+public class EnderecoRequestDto {
     @NotEmpty
     private String tipoResidencial;
     @NotEmpty

@@ -1,6 +1,6 @@
 package com.kciao.GS24.gateways.controllers.interfaces;
 
-import com.kciao.GS24.gateways.requests.EnderecoRequestoDto;
+import com.kciao.GS24.gateways.requests.EnderecoRequestDto;
 import com.kciao.GS24.gateways.responses.EnderecoResponseDto;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -23,11 +23,11 @@ public interface EnderecoController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    ResponseEntity<EnderecoResponseDto> criarEndereco(@RequestBody @Valid EnderecoRequestoDto endereco);
+    ResponseEntity<EnderecoResponseDto> criarEndereco(@RequestBody @Valid EnderecoRequestDto endereco);
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    ResponseEntity<Optional<EnderecoResponseDto>> atualizarEndereco(@PathVariable @Valid String id, @RequestBody @Valid EnderecoRequestoDto endereco);
+    ResponseEntity<Optional<EnderecoResponseDto>> atualizarEndereco(@PathVariable @Valid String id, @RequestBody @Valid EnderecoRequestDto endereco);
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)

@@ -1,6 +1,6 @@
 package com.kciao.GS24.gateways.controllers.interfaces;
 
-import com.kciao.GS24.gateways.requests.UsuarioRequestoDto;
+import com.kciao.GS24.gateways.requests.UsuarioRequestDto;
 import com.kciao.GS24.gateways.responses.UsuarioResponseDto;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -23,11 +23,11 @@ public interface UsuarioController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    ResponseEntity<UsuarioResponseDto> criarUsuario(@RequestBody @Valid UsuarioRequestoDto usuario);
+    ResponseEntity<UsuarioResponseDto> criarUsuario(@RequestBody @Valid UsuarioRequestDto usuario);
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    ResponseEntity<Optional<UsuarioResponseDto>> atualizarUsuario(@PathVariable @Valid String id, @RequestBody @Valid UsuarioRequestoDto usuario);
+    ResponseEntity<Optional<UsuarioResponseDto>> atualizarUsuario(@PathVariable @Valid String id, @RequestBody @Valid UsuarioRequestDto usuario);
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)

@@ -9,9 +9,9 @@ import java.util.Optional;
 
 @Service
 public interface CrudUsuario {
-    UsuarioResponseDto save(UsuarioRequestDto usuarioRequestDto);
+    UsuarioResponseDto save(UsuarioRequestDto usuario);
     Optional<UsuarioResponseDto> findById(Integer id);
     List<UsuarioResponseDto> findAll();
-    Optional<UsuarioResponseDto> update(Integer id, UsuarioRequestDto usuarioRequestDto);
+    Optional<UsuarioResponseDto> update(Integer id, UsuarioRequestDto usuario);
     void delete(Integer id);
 }

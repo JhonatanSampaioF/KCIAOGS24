@@ -1,7 +1,8 @@
 package com.kciao.GS24.gateways.controllers.impl;
 
 import com.kciao.GS24.gateways.controllers.interfaces.EnergiaSolarController;
-import com.kciao.GS24.gateways.requests.EnergiaSolarRequestDto;
+import com.kciao.GS24.gateways.requests.energiaSolar.EnergiaSolarRequestPatchDto;
+import com.kciao.GS24.gateways.requests.energiaSolar.EnergiaSolarRequestPostDto;
 import com.kciao.GS24.gateways.responses.EnergiaSolarResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -24,12 +25,12 @@ public class EnergiaSolarControllerImpl implements EnergiaSolarController {
     }
 
     @Override
-    public ResponseEntity<EnergiaSolarResponseDto> criarEnergiaSolar(EnergiaSolarRequestDto energiaSolar) {
+    public ResponseEntity<EnergiaSolarResponseDto> criarEnergiaSolar(EnergiaSolarRequestPostDto energiaSolar) {
         return null;
     }
 
     @Override
-    public ResponseEntity<Optional<EnergiaSolarResponseDto>> atualizarEnergiaSolar(Integer id, EnergiaSolarRequestDto energiaSolar) {
+    public ResponseEntity<Optional<EnergiaSolarResponseDto>> atualizarEnergiaSolar(Integer id, EnergiaSolarRequestPatchDto energiaSolar) {
         return null;
     }
 

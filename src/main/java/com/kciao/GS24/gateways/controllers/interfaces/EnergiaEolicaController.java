@@ -1,6 +1,7 @@
 package com.kciao.GS24.gateways.controllers.interfaces;
 
-import com.kciao.GS24.gateways.requests.EnergiaEolicaRequestDto;
+import com.kciao.GS24.gateways.requests.energiaEolica.EnergiaEolicaRequestPatchDto;
+import com.kciao.GS24.gateways.requests.energiaEolica.EnergiaEolicaRequestPostDto;
 import com.kciao.GS24.gateways.responses.EnergiaEolicaResponseDto;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -23,11 +24,11 @@ public interface EnergiaEolicaController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    ResponseEntity<EnergiaEolicaResponseDto> criarEnergiaEolica(@RequestBody @Valid EnergiaEolicaRequestDto energiaEolica);
+    ResponseEntity<EnergiaEolicaResponseDto> criarEnergiaEolica(@RequestBody @Valid EnergiaEolicaRequestPostDto energiaEolica);
 
-    @PutMapping("/{id}")
+    @PatchMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    ResponseEntity<Optional<EnergiaEolicaResponseDto>> atualizarEnergiaEolica(@PathVariable @Valid Integer id, @RequestBody @Valid EnergiaEolicaRequestDto energiaEolica);
+    ResponseEntity<Optional<EnergiaEolicaResponseDto>> atualizarEnergiaEolica(@PathVariable @Valid Integer id, @RequestBody @Valid EnergiaEolicaRequestPatchDto energiaEolica);
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)

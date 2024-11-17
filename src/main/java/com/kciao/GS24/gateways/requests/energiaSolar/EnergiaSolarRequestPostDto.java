@@ -1,11 +1,11 @@
-package com.kciao.GS24.gateways.requests;
+package com.kciao.GS24.gateways.requests.energiaSolar;
 
 import com.kciao.GS24.domains.Endereco;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 
 @Data
-public class EnergiaSolarRequestDto {
+public class EnergiaSolarRequestPostDto {
     @NotEmpty
     private int areaPlaca;
     @NotEmpty

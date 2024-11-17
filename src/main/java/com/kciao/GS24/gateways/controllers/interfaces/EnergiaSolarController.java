@@ -1,6 +1,7 @@
 package com.kciao.GS24.gateways.controllers.interfaces;
 
-import com.kciao.GS24.gateways.requests.EnergiaSolarRequestDto;
+import com.kciao.GS24.gateways.requests.energiaSolar.EnergiaSolarRequestPatchDto;
+import com.kciao.GS24.gateways.requests.energiaSolar.EnergiaSolarRequestPostDto;
 import com.kciao.GS24.gateways.responses.EnergiaSolarResponseDto;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -23,11 +24,11 @@ public interface EnergiaSolarController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    ResponseEntity<EnergiaSolarResponseDto> criarEnergiaSolar(@RequestBody @Valid EnergiaSolarRequestDto energiaSolar);
+    ResponseEntity<EnergiaSolarResponseDto> criarEnergiaSolar(@RequestBody @Valid EnergiaSolarRequestPostDto energiaSolar);
 
-    @PutMapping("/{id}")
+    @PatchMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    ResponseEntity<Optional<EnergiaSolarResponseDto>> atualizarEnergiaSolar(@PathVariable @Valid Integer id, @RequestBody @Valid EnergiaSolarRequestDto energiaSolar);
+    ResponseEntity<Optional<EnergiaSolarResponseDto>> atualizarEnergiaSolar(@PathVariable @Valid Integer id, @RequestBody @Valid EnergiaSolarRequestPatchDto energiaSolar);
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)

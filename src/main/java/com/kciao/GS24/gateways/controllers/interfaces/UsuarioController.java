@@ -25,7 +25,7 @@ public interface UsuarioController {
     @ResponseStatus(HttpStatus.CREATED)
     ResponseEntity<UsuarioResponseDto> criarUsuario(@RequestBody @Valid UsuarioRequestDto usuario);
 
-    @PutMapping("/{id}")
+    @PatchMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     ResponseEntity<Optional<UsuarioResponseDto>> atualizarUsuario(@PathVariable @Valid Integer id, @RequestBody @Valid UsuarioRequestDto usuario);
 

@@ -1,7 +1,8 @@
 package com.kciao.GS24.gateways.controllers.impl;
 
 import com.kciao.GS24.gateways.controllers.interfaces.EnderecoController;
-import com.kciao.GS24.gateways.requests.EnderecoRequestDto;
+import com.kciao.GS24.gateways.requests.endereco.EnderecoRequestPatchDto;
+import com.kciao.GS24.gateways.requests.endereco.EnderecoRequestPostDto;
 import com.kciao.GS24.gateways.responses.EnderecoResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -25,12 +26,12 @@ public class EnderecoControllerImpl implements EnderecoController {
     }
 
     @Override
-    public ResponseEntity<EnderecoResponseDto> criarEndereco(EnderecoRequestDto endereco) {
+    public ResponseEntity<EnderecoResponseDto> criarEndereco(EnderecoRequestPostDto endereco) {
         return null;
     }
 
     @Override
-    public ResponseEntity<Optional<EnderecoResponseDto>> atualizarEndereco(Integer id, EnderecoRequestDto endereco) {
+    public ResponseEntity<Optional<EnderecoResponseDto>> atualizarEndereco(Integer id, EnderecoRequestPatchDto endereco) {
         return null;
     }
 

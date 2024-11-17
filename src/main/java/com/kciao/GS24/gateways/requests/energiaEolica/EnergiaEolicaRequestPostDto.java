@@ -1,4 +1,4 @@
-package com.kciao.GS24.gateways.requests;
+package com.kciao.GS24.gateways.requests.energiaEolica;
 
 import com.kciao.GS24.domains.Endereco;
 import jakarta.validation.constraints.NotEmpty;
@@ -6,7 +6,7 @@ import lombok.Data;
 import org.springframework.format.annotation.NumberFormat;
 
 @Data
-public class EnergiaEolicaRequestDto {
+public class EnergiaEolicaRequestPostDto {
     @NotEmpty @NumberFormat(pattern = "##.##")
     private Double potenciaNominal;
     @NotEmpty

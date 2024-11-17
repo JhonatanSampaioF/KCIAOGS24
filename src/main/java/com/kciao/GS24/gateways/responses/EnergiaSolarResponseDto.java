@@ -11,5 +11,4 @@ public class EnergiaSolarResponseDto extends RepresentationModel<EnergiaSolarRes
     private int areaPlaca;
     private Double energiaNecessaria;
     private Double irradiacaoSolar;
-    private Endereco fk_endereco;
 }

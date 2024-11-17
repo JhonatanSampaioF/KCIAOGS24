@@ -4,6 +4,7 @@ import com.kciao.GS24.gateways.controllers.interfaces.EnderecoController;
 import com.kciao.GS24.gateways.requests.endereco.EnderecoRequestPatchDto;
 import com.kciao.GS24.gateways.requests.endereco.EnderecoRequestPostDto;
 import com.kciao.GS24.gateways.responses.EnderecoResponseDto;
+import com.kciao.GS24.usecases.impl.CrudEnderecoImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,28 +16,42 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class EnderecoControllerImpl implements EnderecoController {
 
+    private final CrudEnderecoImpl crudEnderecoImpl;
+
     @Override
     public ResponseEntity<Optional<EnderecoResponseDto>> buscarEndereco(Integer id) {
-        return null;
+
+        Optional<EnderecoResponseDto> enderecoResponse = crudEnderecoImpl.findById(id);
+
+        return ResponseEntity.of(Optional.of(enderecoResponse));
     }
 
     @Override
     public ResponseEntity<List<EnderecoResponseDto>> buscarTodosEndereco() {
-        return null;
+
+        List<EnderecoResponseDto> listEnderecoResponse = crudEnderecoImpl.findAll();
+
+        return ResponseEntity.ok(listEnderecoResponse);
     }
 
     @Override
     public ResponseEntity<EnderecoResponseDto> criarEndereco(EnderecoRequestPostDto endereco) {
-        return null;
+
+        EnderecoResponseDto enderecoResponse = crudEnderecoImpl.save(endereco);
+
+        return ResponseEntity.of(Optional.of(enderecoResponse));
     }
 
     @Override
     public ResponseEntity<Optional<EnderecoResponseDto>> atualizarEndereco(Integer id, EnderecoRequestPatchDto endereco) {
-        return null;
+
+        Optional<EnderecoResponseDto> enderecoResponse = crudEnderecoImpl.update(id, endereco);
+
+        return ResponseEntity.of(Optional.of(enderecoResponse));
     }
 
     @Override
     public void deletarEndereco(Integer id) {
-
+        crudEnderecoImpl.delete(id);
     }
 }

@@ -104,12 +104,16 @@ public class CrudEnderecoImpl implements CrudEndereco {
                 .gastoMensal(endereco.getGastoMensal())
                 .build();
 
-        Optional<Endereco> enderecoAtualizado = enderecoRepository.updateById(
+        int enderecoAtualizado = enderecoRepository.updateById(
                 id,
-                enderecoASerAtualizado
+                enderecoASerAtualizado.getTipoResidencial(),
+                enderecoASerAtualizado.getNome(),
+                enderecoASerAtualizado.getCep(),
+                enderecoASerAtualizado.getTarifa(),
+                enderecoASerAtualizado.getGastoMensal()
         );
 
-        if (enderecoAtualizado.isPresent()) {
+        if (enderecoAtualizado != 0) {
             Optional<EnderecoResponseDto> enderecoResponse = findById(id);
             if(enderecoResponse.isPresent()) {
                 return enderecoResponse;

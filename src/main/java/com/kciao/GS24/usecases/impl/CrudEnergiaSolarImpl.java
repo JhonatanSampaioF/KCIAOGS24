@@ -83,12 +83,14 @@ public class CrudEnergiaSolarImpl implements CrudEnergiaSolar {
                 .irradiacaoSolar(energiaSolar.getIrradiacaoSolar())
                 .build();
 
-        Optional<EnergiaSolar> energiaSolarAtualizada = energiaSolarRepository.updateById(
+        int energiaSolarAtualizada = energiaSolarRepository.updateById(
                 id,
-                energiaSolarASerAtualizada
+                energiaSolarASerAtualizada.getAreaPlaca(),
+                energiaSolarASerAtualizada.getEnergiaNecessaria(),
+                energiaSolarASerAtualizada.getIrradiacaoSolar()
         );
 
-        if (energiaSolarAtualizada.isPresent()) {
+        if (energiaSolarAtualizada != 0) {
             Optional<EnergiaSolarResponseDto> energiaSolarResponse = findById(id);
             if (energiaSolarResponse.isPresent()) {
                 return energiaSolarResponse;

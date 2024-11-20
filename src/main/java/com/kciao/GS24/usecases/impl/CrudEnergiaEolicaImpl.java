@@ -82,12 +82,14 @@ public class CrudEnergiaEolicaImpl implements CrudEnergiaEolica {
                 .diametroRotor(energiaEolica.getDiametroRotor())
                 .build();
 
-        Optional<EnergiaEolica> energiaEolicaAtualizada = energiaEolicaRepository.updateById(
+        int energiaEolicaAtualizada = energiaEolicaRepository.updateById(
                 id,
-                energiaEolicaASerAtualizada
+                energiaEolicaASerAtualizada.getPotenciaNominal(),
+                energiaEolicaASerAtualizada.getAlturaTorre(),
+                energiaEolicaASerAtualizada.getDiametroRotor()
         );
 
-        if (energiaEolicaAtualizada.isPresent()) {
+        if (energiaEolicaAtualizada != 0) {
             Optional<EnergiaEolicaResponseDto> energiaEolicaResponse = findById(id);
 
             if (energiaEolicaResponse.isPresent()) {

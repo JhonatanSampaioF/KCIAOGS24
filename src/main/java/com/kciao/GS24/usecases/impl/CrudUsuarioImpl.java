@@ -75,12 +75,13 @@ public class CrudUsuarioImpl implements CrudUsuario {
                 .email(usuario.getEmail())
                 .build();
 
-        Optional<Usuario> usuarioAtualizado = usuarioRepository.updateById(
+        int usuarioAtualizado = usuarioRepository.updateById(
                 id,
-                usuarioASerAtualizado
+                usuarioASerAtualizado.getNome(),
+                usuarioASerAtualizado.getEmail()
         );
 
-        if (usuarioAtualizado.isPresent()) {
+        if (usuarioAtualizado != 0) {
             Optional<UsuarioResponseDto> usuarioResponse = findById(id);
             if (usuarioResponse.isPresent()) {
                 return usuarioResponse;

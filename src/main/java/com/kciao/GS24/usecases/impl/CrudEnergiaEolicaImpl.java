@@ -2,6 +2,8 @@ package com.kciao.GS24.usecases.impl;
 
 import com.kciao.GS24.domains.Endereco;
 import com.kciao.GS24.domains.EnergiaEolica;
+import com.kciao.GS24.gateways.controllers.interfaces.EnderecoController;
+import com.kciao.GS24.gateways.controllers.interfaces.EnergiaEolicaController;
 import com.kciao.GS24.gateways.repositories.EnderecoRepository;
 import com.kciao.GS24.gateways.repositories.EnergiaEolicaRepository;
 import com.kciao.GS24.gateways.requests.energiaEolica.EnergiaEolicaRequestPatchDto;
@@ -15,6 +17,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @Service
 @RequiredArgsConstructor
@@ -45,6 +50,13 @@ public class CrudEnergiaEolicaImpl implements CrudEnergiaEolica {
                 .diametroRotor(energiaEolicaSalva.getDiametroRotor())
                 .energiaEstimadaGerada(energiaEolicaSalva.getEnergiaEstimadaGerada())
                 .build();
+
+        energiaEolicaResponse.add(
+                linkTo(
+                        methodOn(EnergiaEolicaController.class)
+                                .buscarEnergiaEolica(energiaEolicaSalva.getId())
+                ).withSelfRel()
+        );
 
         return energiaEolicaResponse;
     }

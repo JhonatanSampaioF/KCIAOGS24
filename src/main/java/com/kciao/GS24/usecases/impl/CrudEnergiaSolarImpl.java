@@ -2,6 +2,8 @@ package com.kciao.GS24.usecases.impl;
 
 import com.kciao.GS24.domains.Endereco;
 import com.kciao.GS24.domains.EnergiaSolar;
+import com.kciao.GS24.gateways.controllers.interfaces.EnergiaEolicaController;
+import com.kciao.GS24.gateways.controllers.interfaces.EnergiaSolarController;
 import com.kciao.GS24.gateways.repositories.EnderecoRepository;
 import com.kciao.GS24.gateways.repositories.EnergiaSolarRepository;
 import com.kciao.GS24.gateways.requests.energiaSolar.EnergiaSolarRequestPatchDto;
@@ -15,6 +17,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @Service
 @RequiredArgsConstructor
@@ -43,6 +48,13 @@ public class CrudEnergiaSolarImpl implements CrudEnergiaSolar {
                 .irradiacaoSolar(energiaSolarSalva.getIrradiacaoSolar())
                 .energiaEstimadaGerada(energiaSolarSalva.getEnergiaEstimadaGerada())
                 .build();
+
+        energiaSolarResponse.add(
+                linkTo(
+                        methodOn(EnergiaSolarController.class)
+                                .buscarEnergiaSolar(energiaSolarSalva.getId())
+                ).withSelfRel()
+        );
         
         return energiaSolarResponse;
         

@@ -19,39 +19,10 @@ public class EnergiaSolarControllerImpl implements EnergiaSolarController {
     private final CrudEnergiaSolarImpl crudEnergiaSolar;
 
     @Override
-    public ResponseEntity<Optional<EnergiaSolarResponseDto>> buscarEnergiaSolar(Integer id) {
-
-        Optional<EnergiaSolarResponseDto> energiaSolarResponse = crudEnergiaSolar.findById(id);
-
-        return ResponseEntity.of(Optional.of(energiaSolarResponse));
-    }
-
-    @Override
-    public ResponseEntity<List<EnergiaSolarResponseDto>> buscarTodosEnergiaSolar() {
-
-        List<EnergiaSolarResponseDto> listEnergiaSolarResponse = crudEnergiaSolar.findAll();
-
-        return ResponseEntity.ok(listEnergiaSolarResponse);
-    }
-
-    @Override
     public ResponseEntity<EnergiaSolarResponseDto> criarEnergiaSolar(EnergiaSolarRequestPostDto energiaSolar) {
 
         EnergiaSolarResponseDto energiaSolarResponse =  crudEnergiaSolar.save(energiaSolar);
 
         return ResponseEntity.of(Optional.of(energiaSolarResponse));
-    }
-
-    @Override
-    public ResponseEntity<Optional<EnergiaSolarResponseDto>> atualizarEnergiaSolar(Integer id, EnergiaSolarRequestPatchDto energiaSolar) {
-
-        Optional<EnergiaSolarResponseDto> energiaSolarResponse =  crudEnergiaSolar.update(id, energiaSolar);
-
-        return ResponseEntity.of(Optional.of(energiaSolarResponse));
-    }
-
-    @Override
-    public void deletarEnergiaSolar(Integer id) {
-        crudEnergiaSolar.delete(id);
     }
 }

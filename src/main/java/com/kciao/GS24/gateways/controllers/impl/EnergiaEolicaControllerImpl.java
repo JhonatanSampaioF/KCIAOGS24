@@ -19,39 +19,10 @@ public class EnergiaEolicaControllerImpl implements EnergiaEolicaController {
     private final CrudEnergiaEolicaImpl crudEnergiaEolica;
 
     @Override
-    public ResponseEntity<Optional<EnergiaEolicaResponseDto>> buscarEnergiaEolica(Integer id) {
-
-        Optional<EnergiaEolicaResponseDto> energiaEolicaResponse = crudEnergiaEolica.findById(id);
-
-        return ResponseEntity.of(Optional.of(energiaEolicaResponse));
-    }
-
-    @Override
-    public ResponseEntity<List<EnergiaEolicaResponseDto>> buscarTodosEnergiaEolica() {
-
-        List<EnergiaEolicaResponseDto> listEnergiaEolicaResponse =  crudEnergiaEolica.findAll();
-
-        return ResponseEntity.ok(listEnergiaEolicaResponse);
-    }
-
-    @Override
     public ResponseEntity<EnergiaEolicaResponseDto> criarEnergiaEolica(EnergiaEolicaRequestPostDto energiaEolica) {
 
         EnergiaEolicaResponseDto energiaEolicaResponse = crudEnergiaEolica.save(energiaEolica);
 
         return ResponseEntity.of(Optional.of(energiaEolicaResponse));
-    }
-
-    @Override
-    public ResponseEntity<Optional<EnergiaEolicaResponseDto>> atualizarEnergiaEolica(Integer id, EnergiaEolicaRequestPatchDto energiaEolica) {
-
-        Optional<EnergiaEolicaResponseDto> energiaEolicaResponse =  crudEnergiaEolica.update(id, energiaEolica);
-
-        return ResponseEntity.of(Optional.of(energiaEolicaResponse));
-    }
-
-    @Override
-    public void deletarEnergiaEolica(Integer id) {
-        crudEnergiaEolica.delete(id);
     }
 }

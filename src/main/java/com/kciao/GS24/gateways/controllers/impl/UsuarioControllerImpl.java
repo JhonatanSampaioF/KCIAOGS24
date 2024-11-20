@@ -18,39 +18,10 @@ public class UsuarioControllerImpl implements UsuarioController {
     private final CrudUsuarioImpl crudUsuario;
 
     @Override
-    public ResponseEntity<Optional<UsuarioResponseDto>> buscarUsuario(Integer id) {
-
-        Optional<UsuarioResponseDto> usuarioResponse = crudUsuario.findById(id);
-
-        return ResponseEntity.of(Optional.of(usuarioResponse));
-    }
-
-    @Override
-    public ResponseEntity<List<UsuarioResponseDto>> buscarTodosUsuario() {
-
-        List<UsuarioResponseDto> listUsuarioResponse = crudUsuario.findAll();
-
-        return ResponseEntity.ok(listUsuarioResponse);
-    }
-
-    @Override
     public ResponseEntity<UsuarioResponseDto> criarUsuario(UsuarioRequestDto usuario) {
 
         UsuarioResponseDto usuarioResponse = crudUsuario.save(usuario);
 
         return ResponseEntity.of(Optional.of(usuarioResponse));
-    }
-
-    @Override
-    public ResponseEntity<Optional<UsuarioResponseDto>> atualizarUsuario(Integer id, UsuarioRequestDto usuario) {
-
-        Optional<UsuarioResponseDto> usuarioResponse = crudUsuario.findById(id);
-
-        return ResponseEntity.of(Optional.of(usuarioResponse));
-    }
-
-    @Override
-    public void deletarUsuario(Integer id) {
-        crudUsuario.delete(id);
     }
 }

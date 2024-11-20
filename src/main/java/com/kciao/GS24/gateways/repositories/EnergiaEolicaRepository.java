@@ -12,10 +12,6 @@ import java.util.Optional;
 
 @Service
 public interface EnergiaEolicaRepository extends JpaRepository<EnergiaEolica, Integer> {
-    Optional<EnergiaEolica> findById(Integer id);
-    List<EnergiaEolica> findAll();
-    Optional<EnergiaEolica> updateById(Integer id, EnergiaEolica energiaEolica);
-    void deleteById(Integer id);
     @Modifying
     @Transactional
     @Query(value = "CALL inserir_energia_eolica(" +

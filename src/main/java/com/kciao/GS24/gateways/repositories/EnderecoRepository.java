@@ -12,10 +12,6 @@ import java.util.Optional;
 
 @Service
 public interface EnderecoRepository extends JpaRepository<Endereco, Integer> {
-    Optional<Endereco> findById(Integer id);
-    List<Endereco> findAll();
-    Optional<Endereco> updateById(Integer id, Endereco endereco);
-    void deleteById(Integer id);
     @Modifying
     @Transactional
     @Query(value = "CALL inserir_endereco(" +

@@ -12,10 +12,6 @@ import java.util.Optional;
 
 @Service
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
-    Optional<Usuario> findById(Integer id);
-    List<Usuario> findAll();
-    Optional<Usuario> updateById(Integer id, Usuario usuario);
-    void deleteById(Integer id);
     @Modifying
     @Transactional
     @Query(value = "CALL inserir_usuario(" +

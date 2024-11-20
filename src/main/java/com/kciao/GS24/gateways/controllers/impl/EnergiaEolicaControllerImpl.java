@@ -5,6 +5,7 @@ import com.kciao.GS24.gateways.requests.energiaEolica.EnergiaEolicaRequestPatchD
 import com.kciao.GS24.gateways.requests.energiaEolica.EnergiaEolicaRequestPostDto;
 import com.kciao.GS24.gateways.responses.EnergiaEolicaResponseDto;
 import com.kciao.GS24.usecases.impl.CrudEnergiaEolicaImpl;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

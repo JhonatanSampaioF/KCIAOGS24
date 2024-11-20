@@ -4,6 +4,7 @@ import com.kciao.GS24.gateways.controllers.interfaces.UsuarioController;
 import com.kciao.GS24.gateways.requests.UsuarioRequestDto;
 import com.kciao.GS24.gateways.responses.UsuarioResponseDto;
 import com.kciao.GS24.usecases.impl.CrudUsuarioImpl;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

@@ -5,6 +5,7 @@ import com.kciao.GS24.gateways.requests.energiaSolar.EnergiaSolarRequestPatchDto
 import com.kciao.GS24.gateways.requests.energiaSolar.EnergiaSolarRequestPostDto;
 import com.kciao.GS24.gateways.responses.EnergiaSolarResponseDto;
 import com.kciao.GS24.usecases.impl.CrudEnergiaSolarImpl;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

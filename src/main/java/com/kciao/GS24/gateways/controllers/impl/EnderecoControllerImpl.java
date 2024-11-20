@@ -5,6 +5,8 @@ import com.kciao.GS24.gateways.requests.endereco.EnderecoRequestPatchDto;
 import com.kciao.GS24.gateways.requests.endereco.EnderecoRequestPostDto;
 import com.kciao.GS24.gateways.responses.EnderecoResponseDto;
 import com.kciao.GS24.usecases.impl.CrudEnderecoImpl;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

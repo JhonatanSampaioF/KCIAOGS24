@@ -11,4 +11,5 @@ public class EnergiaEolicaResponseDto extends RepresentationModel<EnergiaEolicaR
     private Double potenciaNominal;
     private Double alturaTorre;
     private Double diametroRotor;
+    private Double energiaEstimadaGerada;
 }

@@ -15,6 +15,7 @@ import lombok.NoArgsConstructor;
 public class EnergiaEolica {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_energ_eol")
     private Integer id;
     @Column(name = "potencia_nominal")
     private Double potenciaNominal;
@@ -22,6 +23,9 @@ public class EnergiaEolica {
     private Double alturaTorre;
     @Column(name = "diametro_rotor")
     private Double diametroRotor;
+    @Column(name = "energ_est_gerada")
+    private Double energiaEstimadaGerada;
     @OneToOne
+    @JoinColumn(name = "Endereco_id_endec", referencedColumnName = "id_endec", nullable = false)
     private Endereco fk_endereco;
 }

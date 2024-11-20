@@ -13,4 +13,5 @@ public class EnderecoResponseDto extends RepresentationModel<EnderecoResponseDto
     private String cep;
     private Double tarifa;
     private Double gastoMensal;
+    private Double economia;
 }

@@ -14,5 +14,7 @@ public class EnergiaEolicaRequestPostDto {
     @NotEmpty
     private Double diametroRotor;
     @NotEmpty
+    private Double energiaEstimadaGerada;
+    @NotEmpty
     private Endereco fk_endereco;
 }

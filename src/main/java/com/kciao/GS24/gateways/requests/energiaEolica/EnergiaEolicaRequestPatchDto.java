@@ -13,4 +13,6 @@ public class EnergiaEolicaRequestPatchDto {
     private Double alturaTorre;
     @NotEmpty
     private Double diametroRotor;
+    @NotEmpty
+    private Double energiaEstimadaGerada;
 }

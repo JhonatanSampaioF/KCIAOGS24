@@ -26,6 +26,7 @@ public class CrudEnergiaSolarImpl implements CrudEnergiaSolar {
         EnergiaSolar energiaSolarASerCriada = EnergiaSolar.builder()
                 .areaPlaca(energiaSolar.getAreaPlaca())
                 .irradiacaoSolar(energiaSolar.getIrradiacaoSolar())
+                .energiaEstimadaGerada(energiaSolar.getEnergiaEstimadaGerada())
                 .fk_endereco(energiaSolar.getFk_endereco())
                 .build();
         
@@ -34,6 +35,7 @@ public class CrudEnergiaSolarImpl implements CrudEnergiaSolar {
         EnergiaSolarResponseDto energiaSolarResponse = EnergiaSolarResponseDto.builder()
                 .areaPlaca(energiaSolarSalva.getAreaPlaca())
                 .irradiacaoSolar(energiaSolarSalva.getIrradiacaoSolar())
+                .energiaEstimadaGerada(energiaSolarSalva.getEnergiaEstimadaGerada())
                 .build();
         
         return energiaSolarResponse;
@@ -49,6 +51,7 @@ public class CrudEnergiaSolarImpl implements CrudEnergiaSolar {
             EnergiaSolarResponseDto energiaSolarResponse = EnergiaSolarResponseDto.builder()
                     .areaPlaca(energiaSolar.get().getAreaPlaca())
                     .irradiacaoSolar(energiaSolar.get().getIrradiacaoSolar())
+                    .energiaEstimadaGerada(energiaSolar.get().getEnergiaEstimadaGerada())
                     .build();
             return Optional.of(energiaSolarResponse);
         } else {
@@ -65,6 +68,7 @@ public class CrudEnergiaSolarImpl implements CrudEnergiaSolar {
                 .map(energiaSolar -> EnergiaSolarResponseDto.builder()
                         .areaPlaca(energiaSolar.getAreaPlaca())
                         .irradiacaoSolar(energiaSolar.getIrradiacaoSolar())
+                        .energiaEstimadaGerada(energiaSolar.getEnergiaEstimadaGerada())
                         .build());
 
         return pageEnergiaSolarResponse;
@@ -76,12 +80,14 @@ public class CrudEnergiaSolarImpl implements CrudEnergiaSolar {
         EnergiaSolar energiaSolarASerAtualizada = EnergiaSolar.builder()
                 .areaPlaca(energiaSolar.getAreaPlaca())
                 .irradiacaoSolar(energiaSolar.getIrradiacaoSolar())
+                .energiaEstimadaGerada(energiaSolar.getEnergiaEstimadaGerada())
                 .build();
 
         int energiaSolarAtualizada = energiaSolarRepository.updateById(
                 id,
                 energiaSolarASerAtualizada.getAreaPlaca(),
-                energiaSolarASerAtualizada.getIrradiacaoSolar()
+                energiaSolarASerAtualizada.getIrradiacaoSolar(),
+                energiaSolarASerAtualizada.getEnergiaEstimadaGerada()
         );
 
         if (energiaSolarAtualizada != 0) {

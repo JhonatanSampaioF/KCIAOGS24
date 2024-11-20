@@ -35,6 +35,7 @@ public class CrudEnderecoImpl implements CrudEndereco {
                 .cep(endereco.getCep())
                 .tarifa(endereco.getTarifa())
                 .gastoMensal(endereco.getGastoMensal())
+                .economia(endereco.getEconomia())
                 .fk_usuario(endereco.getFk_usuario())
                 .build();
 
@@ -46,6 +47,7 @@ public class CrudEnderecoImpl implements CrudEndereco {
                 .cep(enderecoSalvo.getCep())
                 .tarifa(enderecoSalvo.getTarifa())
                 .gastoMensal(enderecoSalvo.getGastoMensal())
+                .economia(enderecoSalvo.getEconomia())
                 .build();
 
         enderecoResponse.add(
@@ -70,6 +72,7 @@ public class CrudEnderecoImpl implements CrudEndereco {
                     .cep(endereco.get().getCep())
                     .tarifa(endereco.get().getTarifa())
                     .gastoMensal(endereco.get().getGastoMensal())
+                    .economia(endereco.get().getEconomia())
                     .build();
             return Optional.of(enderecoResponse);
         } else {
@@ -89,6 +92,7 @@ public class CrudEnderecoImpl implements CrudEndereco {
                         .cep(endereco.getCep())
                         .tarifa(endereco.getTarifa())
                         .gastoMensal(endereco.getGastoMensal())
+                        .economia(endereco.getEconomia())
                         .build());
 
         return listEnderecoResponse;
@@ -102,6 +106,7 @@ public class CrudEnderecoImpl implements CrudEndereco {
                 .cep(endereco.getCep())
                 .tarifa(endereco.getTarifa())
                 .gastoMensal(endereco.getGastoMensal())
+                .economia(endereco.getEconomia())
                 .build();
 
         int enderecoAtualizado = enderecoRepository.updateById(
@@ -110,7 +115,8 @@ public class CrudEnderecoImpl implements CrudEndereco {
                 enderecoASerAtualizado.getNome(),
                 enderecoASerAtualizado.getCep(),
                 enderecoASerAtualizado.getTarifa(),
-                enderecoASerAtualizado.getGastoMensal()
+                enderecoASerAtualizado.getGastoMensal(),
+                enderecoASerAtualizado.getEconomia()
         );
 
         if (enderecoAtualizado != 0) {

@@ -27,6 +27,7 @@ public class CrudEnergiaEolicaImpl implements CrudEnergiaEolica {
                 .potenciaNominal(energiaEolica.getPotenciaNominal())
                 .alturaTorre(energiaEolica.getAlturaTorre())
                 .diametroRotor(energiaEolica.getDiametroRotor())
+                .energiaEstimadaGerada(energiaEolica.getEnergiaEstimadaGerada())
                 .fk_endereco(energiaEolica.getFk_endereco())
                 .build();
 
@@ -36,6 +37,7 @@ public class CrudEnergiaEolicaImpl implements CrudEnergiaEolica {
                 .potenciaNominal(energiaEolicaSalva.getPotenciaNominal())
                 .alturaTorre(energiaEolicaSalva.getAlturaTorre())
                 .diametroRotor(energiaEolicaSalva.getDiametroRotor())
+                .energiaEstimadaGerada(energiaEolicaSalva.getEnergiaEstimadaGerada())
                 .build();
 
         return energiaEolicaResponse;
@@ -51,6 +53,7 @@ public class CrudEnergiaEolicaImpl implements CrudEnergiaEolica {
                     .potenciaNominal(energiaEolica.get().getPotenciaNominal())
                     .alturaTorre(energiaEolica.get().getAlturaTorre())
                     .diametroRotor(energiaEolica.get().getDiametroRotor())
+                    .energiaEstimadaGerada(energiaEolica.get().getEnergiaEstimadaGerada())
                     .build();
             return Optional.of(energiaEolicaResponse);
         } else {
@@ -68,6 +71,7 @@ public class CrudEnergiaEolicaImpl implements CrudEnergiaEolica {
                         .potenciaNominal(energiaEolica.getPotenciaNominal())
                         .alturaTorre(energiaEolica.getAlturaTorre())
                         .diametroRotor(energiaEolica.getDiametroRotor())
+                        .energiaEstimadaGerada(energiaEolica.getEnergiaEstimadaGerada())
                         .build());
 
         return pageEnergiaEolicaResponse;
@@ -80,13 +84,15 @@ public class CrudEnergiaEolicaImpl implements CrudEnergiaEolica {
                 .potenciaNominal(energiaEolica.getPotenciaNominal())
                 .alturaTorre(energiaEolica.getAlturaTorre())
                 .diametroRotor(energiaEolica.getDiametroRotor())
+                .energiaEstimadaGerada(energiaEolica.getEnergiaEstimadaGerada())
                 .build();
 
         int energiaEolicaAtualizada = energiaEolicaRepository.updateById(
                 id,
                 energiaEolicaASerAtualizada.getPotenciaNominal(),
                 energiaEolicaASerAtualizada.getAlturaTorre(),
-                energiaEolicaASerAtualizada.getDiametroRotor()
+                energiaEolicaASerAtualizada.getDiametroRotor(),
+                energiaEolica.getEnergiaEstimadaGerada()
         );
 
         if (energiaEolicaAtualizada != 0) {

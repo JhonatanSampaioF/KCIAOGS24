@@ -10,4 +10,6 @@ public class EnergiaSolarRequestPatchDto {
     private int areaPlaca;
     @NotEmpty
     private Double irradiacaoSolar;
+    @NotEmpty
+    private Double energiaEstimadaGerada;
 }

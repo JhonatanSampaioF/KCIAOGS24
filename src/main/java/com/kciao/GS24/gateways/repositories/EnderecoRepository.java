@@ -24,8 +24,9 @@ public interface EnderecoRepository extends JpaRepository<Endereco, Integer> {
                     "e.nome = :nome," +
                     "e.cep = :cep," +
                     "e.tarifa = :tarifa," +
-                    "e.gastoMensal = :gastoMensal " +
+                    "e.gastoMensal = :gastoMensal, " +
+                    "e.economia = :economia " +
                     "WHERE e.id = :id"
     )
-    int updateById(Integer id, String tipoResidencial, String nome, String cep, Double tarifa, Double gastoMensal);
+    int updateById(Integer id, String tipoResidencial, String nome, String cep, Double tarifa, Double gastoMensal, Double economia);
 }

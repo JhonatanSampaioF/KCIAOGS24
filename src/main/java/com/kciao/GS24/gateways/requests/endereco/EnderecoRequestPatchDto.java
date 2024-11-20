@@ -18,4 +18,6 @@ public class EnderecoRequestPatchDto {
     private Double tarifa;
     @NotEmpty
     private Double gastoMensal;
+    @NotEmpty
+    private Double economia;
 }

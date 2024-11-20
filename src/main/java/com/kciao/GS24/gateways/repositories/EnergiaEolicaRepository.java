@@ -22,8 +22,9 @@ public interface EnergiaEolicaRepository extends JpaRepository<EnergiaEolica, In
             "UPDATE EnergiaEolica ee SET " +
                     "ee.potenciaNominal = :potenciaNominal," +
                     "ee.alturaTorre = :alturaTorre," +
-                    "ee.diametroRotor = :diametroRotor " +
+                    "ee.diametroRotor = :diametroRotor, " +
+                    "ee.energiaEstimadaGerada = :energiaEstimadaGerada " +
                     "WHERE ee.id = :id"
     )
-    int updateById(Integer id, Double potenciaNominal, Double alturaTorre, Double diametroRotor);
+    int updateById(Integer id, Double potenciaNominal, Double alturaTorre, Double diametroRotor, Double energiaEstimadaGerada);
 }

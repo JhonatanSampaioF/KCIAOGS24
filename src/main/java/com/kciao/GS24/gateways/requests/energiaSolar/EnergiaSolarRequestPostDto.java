@@ -11,5 +11,7 @@ public class EnergiaSolarRequestPostDto {
     @NotEmpty
     private Double irradiacaoSolar;
     @NotEmpty
+    private Double energiaEstimadaGerada;
+    @NotEmpty
     private Endereco fk_endereco;
 }

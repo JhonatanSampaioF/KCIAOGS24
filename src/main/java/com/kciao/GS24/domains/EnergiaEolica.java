@@ -26,6 +26,5 @@ public class EnergiaEolica {
     @Column(name = "energ_est_gerada")
     private Double energiaEstimadaGerada;
     @OneToOne
-    @JoinColumn(name = "Endereco_id_endec", referencedColumnName = "id_endec", nullable = false)
     private Endereco fk_endereco;
 }

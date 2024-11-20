@@ -1,20 +1,31 @@
 package com.kciao.GS24.gateways.requests;
 
 import com.kciao.GS24.domains.Endereco;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import org.springframework.format.annotation.NumberFormat;
 
 @Data
 public class EnergiaEolicaRequestDto {
-    @NotEmpty @NumberFormat(pattern = "##.##")
+    @NotNull(message = "Potência nominal não pode ser vazio")
+    @Schema(description = "Potência Nominal do equipamento em kW", example = "500")
     private Double potenciaNominal;
-    @NotEmpty
+
+    @NotNull(message = "Altura da torre não pode ser vazio")
+    @Schema(description = "Altura da torre em metros", example = "15")
     private Double alturaTorre;
-    @NotEmpty
+
+    @NotNull(message = "Diâmetro do rotor não pode ser vazio")
+    @Schema(description = "Diâmetro do rotor em metros", example = "15")
     private Double diametroRotor;
-    @NotEmpty
-    private Endereco fk_endereco;
-    @NotEmpty
+
+    @NotNull(message = "Geração de energia estimada não pode ser vazio")
+    @Schema(description = "Geração de energia estimada em kW", example = "500")
     private Double energiaEstimadaGerada;
+
+    @NotNull(message = "Endereço não pode ser nulo")
+    @Schema(description = "Id do endereço", example = "1")
+    private Integer fk_endereco;
 }

@@ -20,7 +20,7 @@ public interface EnderecoRepository extends JpaRepository<Endereco, Integer> {
             ":gastoMensal, " +
             ":economia, " +
             ":nome)", nativeQuery = true)
-    void insertEndereco(Usuario fk_usuario, String tipoResidencial, String cep, Double tarifa, Double gastoMensal, Double economia, String nome);
+    void insertEndereco(Integer fk_usuario, String tipoResidencial, String cep, Double tarifa, Double gastoMensal, Double economia, String nome);
 
 
 }

@@ -18,5 +18,5 @@ public interface EnergiaEolicaRepository extends JpaRepository<EnergiaEolica, In
             ":diametroRotor," +
             ":energiaEstimadaGerada," +
             ":fk_endereco)", nativeQuery = true)
-    void insertEnergiaEolica(Double potenciaNominal, Double alturaTorre, Double diametroRotor, Double energiaEstimadaGerada, Endereco fk_endereco);
+    void insertEnergiaEolica(Double potenciaNominal, Double alturaTorre, Double diametroRotor, Double energiaEstimadaGerada, Integer fk_endereco);
 }

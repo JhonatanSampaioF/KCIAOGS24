@@ -1,8 +1,10 @@
 package com.kciao.GS24.usecases.impl;
 
 import com.kciao.GS24.domains.Endereco;
+import com.kciao.GS24.domains.Usuario;
 import com.kciao.GS24.gateways.controllers.interfaces.EnderecoController;
 import com.kciao.GS24.gateways.repositories.EnderecoRepository;
+import com.kciao.GS24.gateways.repositories.UsuarioRepository;
 import com.kciao.GS24.gateways.requests.endereco.EnderecoRequestPatchDto;
 import com.kciao.GS24.gateways.requests.endereco.EnderecoRequestPostDto;
 import com.kciao.GS24.gateways.responses.EnderecoResponseDto;
@@ -25,9 +27,13 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 public class CrudEnderecoImpl implements CrudEndereco {
 
     private final EnderecoRepository enderecoRepository;
+    private final UsuarioRepository usuarioRepository;
 
     @Override
     public EnderecoResponseDto save(EnderecoRequestPostDto endereco) {
+
+        Optional<Usuario> usuarioOptional = usuarioRepository.findById(endereco.getFk_usuario());
+        Usuario usuario = usuarioOptional.orElseThrow(() -> new RuntimeException("Usuario não encontrado com o ID: " + endereco.getFk_usuario()));
 
         Endereco enderecoASerCriado = Endereco.builder()
                 .tipoResidencial(endereco.getTipoResidencial())
@@ -36,7 +42,7 @@ public class CrudEnderecoImpl implements CrudEndereco {
                 .tarifa(endereco.getTarifa())
                 .gastoMensal(endereco.getGastoMensal())
                 .economia(endereco.getEconomia())
-                .fk_usuario(endereco.getFk_usuario())
+                .fk_usuario(usuario)
                 .build();
 
         Endereco enderecoSalvo = enderecoRepository.save(enderecoASerCriado);

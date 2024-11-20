@@ -1,6 +1,8 @@
 package com.kciao.GS24.usecases.impl;
 
+import com.kciao.GS24.domains.Endereco;
 import com.kciao.GS24.domains.EnergiaEolica;
+import com.kciao.GS24.gateways.repositories.EnderecoRepository;
 import com.kciao.GS24.gateways.repositories.EnergiaEolicaRepository;
 import com.kciao.GS24.gateways.requests.energiaEolica.EnergiaEolicaRequestPatchDto;
 import com.kciao.GS24.gateways.requests.energiaEolica.EnergiaEolicaRequestPostDto;
@@ -19,16 +21,20 @@ import java.util.Optional;
 public class CrudEnergiaEolicaImpl implements CrudEnergiaEolica {
 
     private final EnergiaEolicaRepository energiaEolicaRepository;
+    private final EnderecoRepository enderecoRepository;
 
     @Override
     public EnergiaEolicaResponseDto save(EnergiaEolicaRequestPostDto energiaEolica) {
+
+        Optional<Endereco> enderecoOptional = enderecoRepository.findById(energiaEolica.getFk_endereco());
+        Endereco endereco = enderecoOptional.orElseThrow(() -> new RuntimeException("Endereco não encontrado com o ID: " + energiaEolica.getFk_endereco()));
 
         EnergiaEolica energiaEolicaASerCriada = EnergiaEolica.builder()
                 .potenciaNominal(energiaEolica.getPotenciaNominal())
                 .alturaTorre(energiaEolica.getAlturaTorre())
                 .diametroRotor(energiaEolica.getDiametroRotor())
                 .energiaEstimadaGerada(energiaEolica.getEnergiaEstimadaGerada())
-                .fk_endereco(energiaEolica.getFk_endereco())
+                .fk_endereco(endereco)
                 .build();
 
         EnergiaEolica energiaEolicaSalva = energiaEolicaRepository.save(energiaEolicaASerCriada);

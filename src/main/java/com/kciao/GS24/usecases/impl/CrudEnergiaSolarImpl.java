@@ -1,6 +1,8 @@
 package com.kciao.GS24.usecases.impl;
 
+import com.kciao.GS24.domains.Endereco;
 import com.kciao.GS24.domains.EnergiaSolar;
+import com.kciao.GS24.gateways.repositories.EnderecoRepository;
 import com.kciao.GS24.gateways.repositories.EnergiaSolarRepository;
 import com.kciao.GS24.gateways.requests.energiaSolar.EnergiaSolarRequestPatchDto;
 import com.kciao.GS24.gateways.requests.energiaSolar.EnergiaSolarRequestPostDto;
@@ -19,15 +21,19 @@ import java.util.Optional;
 public class CrudEnergiaSolarImpl implements CrudEnergiaSolar {
 
     private final EnergiaSolarRepository energiaSolarRepository;
+    private final EnderecoRepository enderecoRepository;
 
     @Override
     public EnergiaSolarResponseDto save(EnergiaSolarRequestPostDto energiaSolar) {
+
+        Optional<Endereco> enderecoOptional = enderecoRepository.findById(energiaSolar.getFk_endereco());
+        Endereco endereco = enderecoOptional.orElseThrow(() -> new RuntimeException("Endereco não encontrado com o ID: " + energiaSolar.getFk_endereco()));
         
         EnergiaSolar energiaSolarASerCriada = EnergiaSolar.builder()
                 .areaPlaca(energiaSolar.getAreaPlaca())
                 .irradiacaoSolar(energiaSolar.getIrradiacaoSolar())
                 .energiaEstimadaGerada(energiaSolar.getEnergiaEstimadaGerada())
-                .fk_endereco(energiaSolar.getFk_endereco())
+                .fk_endereco(endereco)
                 .build();
         
         EnergiaSolar energiaSolarSalva = energiaSolarRepository.save(energiaSolarASerCriada);

@@ -50,7 +50,7 @@ public class UsuarioControllerImpl implements UsuarioController {
     @Override
     public ResponseEntity<Optional<UsuarioResponseDto>> atualizarUsuario(Integer id, UsuarioRequestDto usuario) {
 
-        Optional<UsuarioResponseDto> usuarioResponse = crudUsuario.findById(id);
+        Optional<UsuarioResponseDto> usuarioResponse = crudUsuario.update(id, usuario);
 
         return ResponseEntity.of(Optional.of(usuarioResponse));
     }

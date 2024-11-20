@@ -9,8 +9,6 @@ public class EnergiaSolarRequestPostDto {
     @NotEmpty
     private int areaPlaca;
     @NotEmpty
-    private Double energiaNecessaria;
-    @NotEmpty
     private Double irradiacaoSolar;
     @NotEmpty
     private Endereco fk_endereco;

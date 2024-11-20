@@ -21,9 +21,8 @@ public interface EnergiaSolarRepository extends JpaRepository<EnergiaSolar, Inte
     @Query(
             "UPDATE EnergiaSolar es SET " +
                     "es.areaPlaca = :areaPlaca," +
-                    "es.energiaNecessaria = :energiaNecessaria," +
                     "es.irradiacaoSolar = :irradiacaoSolar " +
                     "WHERE es.id = :id"
     )
-    int updateById(Integer id, int areaPlaca, Double energiaNecessaria, Double irradiacaoSolar);
+    int updateById(Integer id, int areaPlaca, Double irradiacaoSolar);
 }

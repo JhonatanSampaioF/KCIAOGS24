@@ -9,6 +9,5 @@ import org.springframework.hateoas.RepresentationModel;
 @Builder
 public class EnergiaSolarResponseDto extends RepresentationModel<EnergiaSolarResponseDto> {
     private int areaPlaca;
-    private Double energiaNecessaria;
     private Double irradiacaoSolar;
 }

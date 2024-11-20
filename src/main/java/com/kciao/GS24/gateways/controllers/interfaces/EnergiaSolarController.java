@@ -29,9 +29,9 @@ public interface EnergiaSolarController {
     @Operation(summary = "Busca todos os registros de energias solares", description = "Retorna uma lista paginada de todas as energias solares registrados.")
     ResponseEntity<Page<EnergiaSolarResponseDto>> buscarTodosEnergiaSolar(
             @RequestParam(defaultValue = "0") int page,
-          @RequestParam(defaultValue = "5") int size,
-          @RequestParam(defaultValue = "id") String sort,
-          @RequestParam(defaultValue = "ASC") Sort.Direction direction
+            @RequestParam(defaultValue = "5") int size,
+            @RequestParam(defaultValue = "id") String sort,
+            @RequestParam(defaultValue = "ASC") Sort.Direction direction
     );
 
     @PostMapping

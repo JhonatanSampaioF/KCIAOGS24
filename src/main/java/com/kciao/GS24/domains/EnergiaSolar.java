@@ -18,8 +18,6 @@ public class EnergiaSolar {
     private Integer id;
     @Column(name = "area_placa")
     private int areaPlaca;
-    @Column(name = "energia_necessaria")
-    private Double energiaNecessaria;
     @Column(name = "irradiacao_solar")
     private Double irradiacaoSolar;
     @OneToOne

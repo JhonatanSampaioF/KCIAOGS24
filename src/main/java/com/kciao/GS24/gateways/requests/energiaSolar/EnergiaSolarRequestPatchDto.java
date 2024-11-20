@@ -9,7 +9,5 @@ public class EnergiaSolarRequestPatchDto {
     @NotEmpty
     private int areaPlaca;
     @NotEmpty
-    private Double energiaNecessaria;
-    @NotEmpty
     private Double irradiacaoSolar;
 }

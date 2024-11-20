@@ -9,6 +9,7 @@ import org.springframework.hateoas.RepresentationModel;
 @Builder
 public class EnderecoResponseDto extends RepresentationModel<EnderecoResponseDto> {
     private String tipoResidencial;
+    private String nome;
     private String cep;
     private Double tarifa;
     private Double gastoMensal;

@@ -18,10 +18,11 @@ public class Endereco {
     private Integer id;
     @Column(name = "tipo_residencial")
     private String tipoResidencial;
+    private String nome;
     private String cep;
     private Double tarifa;
     @Column(name = "gasto_mensal")
     private Double gastoMensal;
-    @OneToOne
+    @ManyToOne
     private Usuario fk_usuario;
 }

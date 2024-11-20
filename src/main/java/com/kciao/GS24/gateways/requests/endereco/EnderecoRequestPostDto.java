@@ -11,6 +11,8 @@ public class EnderecoRequestPostDto {
     @NotEmpty
     private String tipoResidencial;
     @NotEmpty
+    private String nome;
+    @NotEmpty
     private String cep;
     @NotEmpty @NumberFormat(pattern = "##.#####")
     private Double tarifa;

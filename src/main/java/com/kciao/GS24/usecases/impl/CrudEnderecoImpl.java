@@ -27,6 +27,7 @@ public class CrudEnderecoImpl implements CrudEndereco {
 
         Endereco enderecoASerCriado = Endereco.builder()
                 .tipoResidencial(endereco.getTipoResidencial())
+                .nome(endereco.getNome())
                 .cep(endereco.getCep())
                 .tarifa(endereco.getTarifa())
                 .gastoMensal(endereco.getGastoMensal())
@@ -37,6 +38,7 @@ public class CrudEnderecoImpl implements CrudEndereco {
 
         EnderecoResponseDto enderecoResponse = EnderecoResponseDto.builder()
                 .tipoResidencial(enderecoSalvo.getTipoResidencial())
+                .nome(enderecoSalvo.getNome())
                 .cep(enderecoSalvo.getCep())
                 .tarifa(enderecoSalvo.getTarifa())
                 .gastoMensal(enderecoSalvo.getGastoMensal())
@@ -60,6 +62,7 @@ public class CrudEnderecoImpl implements CrudEndereco {
         if (endereco.isPresent()) {
             EnderecoResponseDto enderecoResponse = EnderecoResponseDto.builder()
                     .tipoResidencial(endereco.get().getTipoResidencial())
+                    .nome(endereco.get().getNome())
                     .cep(endereco.get().getCep())
                     .tarifa(endereco.get().getTarifa())
                     .gastoMensal(endereco.get().getGastoMensal())
@@ -78,6 +81,7 @@ public class CrudEnderecoImpl implements CrudEndereco {
         List<EnderecoResponseDto> listEnderecoResponse = listEndereco.stream()
                 .map(endereco -> EnderecoResponseDto.builder()
                         .tipoResidencial(endereco.getTipoResidencial())
+                        .nome(endereco.getNome())
                         .cep(endereco.getCep())
                         .tarifa(endereco.getTarifa())
                         .gastoMensal(endereco.getGastoMensal())
@@ -90,6 +94,7 @@ public class CrudEnderecoImpl implements CrudEndereco {
     public Optional<EnderecoResponseDto> update(Integer id, EnderecoRequestPatchDto endereco) {
         Endereco enderecoASerAtualizado = Endereco.builder()
                 .tipoResidencial(endereco.getTipoResidencial())
+                .nome(endereco.getNome())
                 .cep(endereco.getCep())
                 .tarifa(endereco.getTarifa())
                 .gastoMensal(endereco.getGastoMensal())

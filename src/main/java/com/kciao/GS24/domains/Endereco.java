@@ -26,6 +26,6 @@ public class Endereco {
     private Double gastoMensal;
     private Double economia;
     @ManyToOne
-    @Column(name = "id_user")
+    @JoinColumn(name = "id_user", nullable = false)
     private Usuario fk_usuario;
 }

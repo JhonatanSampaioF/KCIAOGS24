@@ -20,6 +20,7 @@ public class CrudEnergiaEolicaImpl implements CrudEnergiaEolica {
             energiaEolica.getPotenciaNominal(),
             energiaEolica.getAlturaTorre(),
             energiaEolica.getDiametroRotor(),
+            energiaEolica.getEnergiaEstimadaGerada(),
             energiaEolica.getFk_endereco()
         );
 
@@ -27,6 +28,7 @@ public class CrudEnergiaEolicaImpl implements CrudEnergiaEolica {
                 .potenciaNominal(energiaEolica.getPotenciaNominal())
                 .alturaTorre(energiaEolica.getAlturaTorre())
                 .diametroRotor(energiaEolica.getDiametroRotor())
+                .energiaEstimadaGerada(energiaEolica.getEnergiaEstimadaGerada())
                 .build();
 
         return energiaEolicaResponse;

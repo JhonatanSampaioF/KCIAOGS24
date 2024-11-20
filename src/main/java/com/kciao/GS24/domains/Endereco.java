@@ -15,6 +15,7 @@ import lombok.NoArgsConstructor;
 public class Endereco {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_endec")
     private Integer id;
     @Column(name = "tipo_residencial")
     private String tipoResidencial;
@@ -23,6 +24,8 @@ public class Endereco {
     private Double tarifa;
     @Column(name = "gasto_mensal")
     private Double gastoMensal;
+    private Double economia;
     @ManyToOne
+    @Column(name = "id_user")
     private Usuario fk_usuario;
 }

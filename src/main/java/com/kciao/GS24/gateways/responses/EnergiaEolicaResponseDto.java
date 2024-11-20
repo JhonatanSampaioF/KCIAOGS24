@@ -1,6 +1,7 @@
 package com.kciao.GS24.gateways.responses;
 
 import com.kciao.GS24.domains.Endereco;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.hateoas.RepresentationModel;
@@ -11,4 +12,5 @@ public class EnergiaEolicaResponseDto extends RepresentationModel<EnergiaEolicaR
     private Double potenciaNominal;
     private Double alturaTorre;
     private Double diametroRotor;
+    private Double energiaEstimadaGerada;
 }

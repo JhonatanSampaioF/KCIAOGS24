@@ -19,12 +19,14 @@ public class CrudEnergiaSolarImpl implements CrudEnergiaSolar {
         energiaSolarRepository.insertEnergiaSolar(
                 energiaSolar.getAreaPlaca(),
                 energiaSolar.getIrradiacaoSolar(),
+                energiaSolar.getEnergiaEstimadaGerada(),
                 energiaSolar.getFk_endereco()
         );
         
         EnergiaSolarResponseDto energiaSolarResponse = EnergiaSolarResponseDto.builder()
                 .areaPlaca(energiaSolar.getAreaPlaca())
                 .irradiacaoSolar(energiaSolar.getIrradiacaoSolar())
+                .energiaEstimadaGerada(energiaSolar.getEnergiaEstimadaGerada())
                 .build();
         
         return energiaSolarResponse;

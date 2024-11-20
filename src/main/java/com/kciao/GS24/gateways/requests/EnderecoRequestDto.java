@@ -19,5 +19,7 @@ public class EnderecoRequestDto {
     @NotEmpty
     private Double gastoMensal;
     @NotEmpty
+    private Double economia;
+    @NotEmpty
     private Usuario fk_usuario;
 }

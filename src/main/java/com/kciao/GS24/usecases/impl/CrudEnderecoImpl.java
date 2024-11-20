@@ -22,6 +22,7 @@ public class CrudEnderecoImpl implements CrudEndereco {
                 endereco.getCep(),
                 endereco.getTarifa(),
                 endereco.getGastoMensal(),
+                endereco.getEconomia(),
                 endereco.getNome()
                 );
 
@@ -31,6 +32,7 @@ public class CrudEnderecoImpl implements CrudEndereco {
                 .cep(endereco.getCep())
                 .tarifa(endereco.getTarifa())
                 .gastoMensal(endereco.getGastoMensal())
+                .economia(endereco.getEconomia())
                 .build();
 
         return enderecoResponse;

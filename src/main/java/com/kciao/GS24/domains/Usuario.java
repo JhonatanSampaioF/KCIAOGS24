@@ -15,6 +15,7 @@ import lombok.NoArgsConstructor;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_user")
     private Integer id;
     private String nome;
     private String email;

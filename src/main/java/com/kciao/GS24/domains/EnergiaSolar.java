@@ -15,11 +15,15 @@ import lombok.NoArgsConstructor;
 public class EnergiaSolar {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_energ_sol")
     private Integer id;
     @Column(name = "area_placa")
     private int areaPlaca;
     @Column(name = "irradiacao_solar")
     private Double irradiacaoSolar;
+    @Column(name = "energ_est_gerada")
+    private Double energiaEstimadaGerada;
     @OneToOne
+    @Column(name = "Endereco_id_endec")
     private Endereco fk_endereco;
 }

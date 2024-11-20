@@ -12,4 +12,6 @@ public class EnergiaSolarRequestDto {
     private Double irradiacaoSolar;
     @NotEmpty
     private Endereco fk_endereco;
+    @NotEmpty
+    private Double energiaEstimadaGerada;
 }

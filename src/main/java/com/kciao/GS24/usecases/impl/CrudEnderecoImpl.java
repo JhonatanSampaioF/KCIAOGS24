@@ -1,7 +1,7 @@
 package com.kciao.GS24.usecases.impl;
 
 import com.kciao.GS24.gateways.repositories.EnderecoRepository;
-import com.kciao.GS24.gateways.requests.endereco.EnderecoRequestPostDto;
+import com.kciao.GS24.gateways.requests.EnderecoRequestDto;
 import com.kciao.GS24.gateways.responses.EnderecoResponseDto;
 import com.kciao.GS24.usecases.interfaces.CrudEndereco;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +14,7 @@ public class CrudEnderecoImpl implements CrudEndereco {
     private final EnderecoRepository enderecoRepository;
 
     @Override
-    public EnderecoResponseDto save(EnderecoRequestPostDto endereco) {
+    public EnderecoResponseDto save(EnderecoRequestDto endereco) {
 
         enderecoRepository.insertEndereco(
                 endereco.getFk_usuario(),

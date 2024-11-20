@@ -1,4 +1,4 @@
-package com.kciao.GS24.gateways.requests.endereco;
+package com.kciao.GS24.gateways.requests;
 
 import com.kciao.GS24.domains.Usuario;
 import jakarta.validation.constraints.NotEmpty;
@@ -7,7 +7,7 @@ import org.springframework.format.annotation.NumberFormat;
 
 @Data
 
-public class EnderecoRequestPostDto {
+public class EnderecoRequestDto {
     @NotEmpty
     private String tipoResidencial;
     @NotEmpty

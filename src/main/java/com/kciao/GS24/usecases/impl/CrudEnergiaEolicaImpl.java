@@ -1,7 +1,7 @@
 package com.kciao.GS24.usecases.impl;
 
 import com.kciao.GS24.gateways.repositories.EnergiaEolicaRepository;
-import com.kciao.GS24.gateways.requests.energiaEolica.EnergiaEolicaRequestPostDto;
+import com.kciao.GS24.gateways.requests.EnergiaEolicaRequestDto;
 import com.kciao.GS24.gateways.responses.EnergiaEolicaResponseDto;
 import com.kciao.GS24.usecases.interfaces.CrudEnergiaEolica;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +14,7 @@ public class CrudEnergiaEolicaImpl implements CrudEnergiaEolica {
     private final EnergiaEolicaRepository energiaEolicaRepository;
 
     @Override
-    public EnergiaEolicaResponseDto save(EnergiaEolicaRequestPostDto energiaEolica) {
+    public EnergiaEolicaResponseDto save(EnergiaEolicaRequestDto energiaEolica) {
 
         energiaEolicaRepository.insertEnergiaEolica(
             energiaEolica.getPotenciaNominal(),

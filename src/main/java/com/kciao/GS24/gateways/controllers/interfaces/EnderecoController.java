@@ -1,6 +1,6 @@
 package com.kciao.GS24.gateways.controllers.interfaces;
 
-import com.kciao.GS24.gateways.requests.endereco.EnderecoRequestPostDto;
+import com.kciao.GS24.gateways.requests.EnderecoRequestDto;
 import com.kciao.GS24.gateways.responses.EnderecoResponseDto;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -13,5 +13,5 @@ public interface EnderecoController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    ResponseEntity<EnderecoResponseDto> criarEndereco(@RequestBody @Valid EnderecoRequestPostDto endereco);
+    ResponseEntity<EnderecoResponseDto> criarEndereco(@RequestBody @Valid EnderecoRequestDto endereco);
 }

@@ -6,10 +6,13 @@ import com.kciao.GS24.gateways.requests.endereco.EnderecoRequestPostDto;
 import com.kciao.GS24.gateways.responses.EnderecoResponseDto;
 import com.kciao.GS24.usecases.impl.CrudEnderecoImpl;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -27,11 +30,13 @@ public class EnderecoControllerImpl implements EnderecoController {
     }
 
     @Override
-    public ResponseEntity<List<EnderecoResponseDto>> buscarTodosEndereco() {
+    public ResponseEntity<Page<EnderecoResponseDto>> buscarTodosEndereco(int page, int size, String sort, Sort.Direction direction) {
 
-        List<EnderecoResponseDto> listEnderecoResponse = crudEnderecoImpl.findAll();
+        Pageable pageable = PageRequest.of(page, size, Sort.by(direction,sort));
 
-        return ResponseEntity.ok(listEnderecoResponse);
+        Page<EnderecoResponseDto> pageEnderecoResponse = crudEnderecoImpl.findAll(pageable);
+
+        return ResponseEntity.ok(pageEnderecoResponse);
     }
 
     @Override

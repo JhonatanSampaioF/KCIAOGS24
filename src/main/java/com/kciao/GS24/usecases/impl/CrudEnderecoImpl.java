@@ -8,6 +8,10 @@ import com.kciao.GS24.gateways.requests.endereco.EnderecoRequestPostDto;
 import com.kciao.GS24.gateways.responses.EnderecoResponseDto;
 import com.kciao.GS24.usecases.interfaces.CrudEndereco;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -74,18 +78,18 @@ public class CrudEnderecoImpl implements CrudEndereco {
     }
 
     @Override
-    public List<EnderecoResponseDto> findAll() {
+    public Page<EnderecoResponseDto> findAll(Pageable pageable) {
 
-        List<Endereco> listEndereco = enderecoRepository.findAll();
+        Page<Endereco> pageEndereco = enderecoRepository.findAll(pageable);
 
-        List<EnderecoResponseDto> listEnderecoResponse = listEndereco.stream()
+        Page<EnderecoResponseDto> listEnderecoResponse = pageEndereco
                 .map(endereco -> EnderecoResponseDto.builder()
                         .tipoResidencial(endereco.getTipoResidencial())
                         .nome(endereco.getNome())
                         .cep(endereco.getCep())
                         .tarifa(endereco.getTarifa())
                         .gastoMensal(endereco.getGastoMensal())
-                        .build()).toList();
+                        .build());
 
         return listEnderecoResponse;
     }

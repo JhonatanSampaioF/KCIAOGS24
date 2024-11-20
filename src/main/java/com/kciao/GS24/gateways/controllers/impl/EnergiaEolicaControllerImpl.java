@@ -6,10 +6,13 @@ import com.kciao.GS24.gateways.requests.energiaEolica.EnergiaEolicaRequestPostDt
 import com.kciao.GS24.gateways.responses.EnergiaEolicaResponseDto;
 import com.kciao.GS24.usecases.impl.CrudEnergiaEolicaImpl;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -27,11 +30,13 @@ public class EnergiaEolicaControllerImpl implements EnergiaEolicaController {
     }
 
     @Override
-    public ResponseEntity<List<EnergiaEolicaResponseDto>> buscarTodosEnergiaEolica() {
+    public ResponseEntity<Page<EnergiaEolicaResponseDto>> buscarTodosEnergiaEolica(int page, int size, String sort, Sort.Direction direction) {
 
-        List<EnergiaEolicaResponseDto> listEnergiaEolicaResponse =  crudEnergiaEolica.findAll();
+        Pageable pageable = PageRequest.of(page, size, Sort.by(direction,sort));
 
-        return ResponseEntity.ok(listEnergiaEolicaResponse);
+        Page<EnergiaEolicaResponseDto> pageEnergiaEolicaResponse =  crudEnergiaEolica.findAll(pageable);
+
+        return ResponseEntity.ok(pageEnergiaEolicaResponse);
     }
 
     @Override

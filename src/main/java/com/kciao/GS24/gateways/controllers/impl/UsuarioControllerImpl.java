@@ -5,10 +5,13 @@ import com.kciao.GS24.gateways.requests.UsuarioRequestDto;
 import com.kciao.GS24.gateways.responses.UsuarioResponseDto;
 import com.kciao.GS24.usecases.impl.CrudUsuarioImpl;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -26,11 +29,13 @@ public class UsuarioControllerImpl implements UsuarioController {
     }
 
     @Override
-    public ResponseEntity<List<UsuarioResponseDto>> buscarTodosUsuario() {
+    public ResponseEntity<Page<UsuarioResponseDto>> buscarTodosUsuario(int page, int size, String sort, Sort.Direction direction) {
 
-        List<UsuarioResponseDto> listUsuarioResponse = crudUsuario.findAll();
+        Pageable pageable = PageRequest.of(page, size, Sort.by(direction,sort));
 
-        return ResponseEntity.ok(listUsuarioResponse);
+        Page<UsuarioResponseDto> pageUsuarioResponse = crudUsuario.findAll(pageable);
+
+        return ResponseEntity.ok(pageUsuarioResponse);
     }
 
     @Override

@@ -7,6 +7,8 @@ import com.kciao.GS24.gateways.requests.energiaSolar.EnergiaSolarRequestPostDto;
 import com.kciao.GS24.gateways.responses.EnergiaSolarResponseDto;
 import com.kciao.GS24.usecases.interfaces.CrudEnergiaSolar;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -58,18 +60,18 @@ public class CrudEnergiaSolarImpl implements CrudEnergiaSolar {
     }
 
     @Override
-    public List<EnergiaSolarResponseDto> findAll() {
+    public Page<EnergiaSolarResponseDto> findAll(Pageable pageable) {
 
-        List<EnergiaSolar> listEnergiaSolar = energiaSolarRepository.findAll();
+        Page<EnergiaSolar> pageEnergiaSolar = energiaSolarRepository.findAll(pageable);
 
-        List<EnergiaSolarResponseDto> listEnergiaSolarResponse = listEnergiaSolar.stream()
+        Page<EnergiaSolarResponseDto> pageEnergiaSolarResponse = pageEnergiaSolar
                 .map(energiaSolar -> EnergiaSolarResponseDto.builder()
                         .areaPlaca(energiaSolar.getAreaPlaca())
                         .energiaNecessaria(energiaSolar.getEnergiaNecessaria())
                         .irradiacaoSolar(energiaSolar.getIrradiacaoSolar())
-                        .build()).toList();
+                        .build());
 
-        return listEnergiaSolarResponse;
+        return pageEnergiaSolarResponse;
     }
 
     @Override

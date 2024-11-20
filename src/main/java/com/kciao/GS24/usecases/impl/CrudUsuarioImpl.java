@@ -6,6 +6,8 @@ import com.kciao.GS24.gateways.requests.UsuarioRequestDto;
 import com.kciao.GS24.gateways.responses.UsuarioResponseDto;
 import com.kciao.GS24.usecases.interfaces.CrudUsuario;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -52,17 +54,17 @@ public class CrudUsuarioImpl implements CrudUsuario {
     }
 
     @Override
-    public List<UsuarioResponseDto> findAll() {
+    public Page<UsuarioResponseDto> findAll(Pageable pageable) {
 
-        List<Usuario> listUsuario = usuarioRepository.findAll();
+        Page<Usuario> pageUsuario = usuarioRepository.findAll(pageable);
 
-        List<UsuarioResponseDto> listUsuarioResponse = listUsuario.stream()
+        Page<UsuarioResponseDto> pageUsuarioResponse = pageUsuario
                 .map(usuario -> UsuarioResponseDto.builder()
                         .nome(usuario.getNome())
                         .email(usuario.getEmail())
-                        .build()).toList();
+                        .build());
 
-        return listUsuarioResponse;
+        return pageUsuarioResponse;
     }
 
     @Override

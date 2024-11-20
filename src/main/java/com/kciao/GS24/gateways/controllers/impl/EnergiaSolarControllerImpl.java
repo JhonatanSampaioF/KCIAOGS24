@@ -6,10 +6,13 @@ import com.kciao.GS24.gateways.requests.energiaSolar.EnergiaSolarRequestPostDto;
 import com.kciao.GS24.gateways.responses.EnergiaSolarResponseDto;
 import com.kciao.GS24.usecases.impl.CrudEnergiaSolarImpl;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -27,11 +30,13 @@ public class EnergiaSolarControllerImpl implements EnergiaSolarController {
     }
 
     @Override
-    public ResponseEntity<List<EnergiaSolarResponseDto>> buscarTodosEnergiaSolar() {
+    public ResponseEntity<Page<EnergiaSolarResponseDto>> buscarTodosEnergiaSolar(int page, int size, String sort, Sort.Direction direction) {
 
-        List<EnergiaSolarResponseDto> listEnergiaSolarResponse = crudEnergiaSolar.findAll();
+        Pageable pageable = PageRequest.of(page, size, Sort.by(direction,sort));
 
-        return ResponseEntity.ok(listEnergiaSolarResponse);
+        Page<EnergiaSolarResponseDto> pageEnergiaSolarResponse = crudEnergiaSolar.findAll(pageable);
+
+        return ResponseEntity.ok(pageEnergiaSolarResponse);
     }
 
     @Override

@@ -7,6 +7,8 @@ import com.kciao.GS24.gateways.requests.energiaEolica.EnergiaEolicaRequestPostDt
 import com.kciao.GS24.gateways.responses.EnergiaEolicaResponseDto;
 import com.kciao.GS24.usecases.interfaces.CrudEnergiaEolica;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -57,18 +59,18 @@ public class CrudEnergiaEolicaImpl implements CrudEnergiaEolica {
     }
 
     @Override
-    public List<EnergiaEolicaResponseDto> findAll() {
+    public Page<EnergiaEolicaResponseDto> findAll(Pageable pageable) {
 
-        List<EnergiaEolica> listEnergiaEolica = energiaEolicaRepository.findAll();
+        Page<EnergiaEolica> pageEnergiaEolica = energiaEolicaRepository.findAll(pageable);
 
-        List<EnergiaEolicaResponseDto> listEnergiaEolicaResponse = listEnergiaEolica.stream()
+        Page<EnergiaEolicaResponseDto> pageEnergiaEolicaResponse = pageEnergiaEolica
                 .map(energiaEolica -> EnergiaEolicaResponseDto.builder()
                         .potenciaNominal(energiaEolica.getPotenciaNominal())
                         .alturaTorre(energiaEolica.getAlturaTorre())
                         .diametroRotor(energiaEolica.getDiametroRotor())
-                        .build()).toList();
+                        .build());
 
-        return listEnergiaEolicaResponse;
+        return pageEnergiaEolicaResponse;
     }
 
     @Override

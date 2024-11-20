@@ -4,6 +4,8 @@ import com.kciao.GS24.gateways.requests.energiaEolica.EnergiaEolicaRequestPatchD
 import com.kciao.GS24.gateways.requests.energiaEolica.EnergiaEolicaRequestPostDto;
 import com.kciao.GS24.gateways.responses.EnergiaEolicaResponseDto;
 import jakarta.validation.Valid;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +22,10 @@ public interface EnergiaEolicaController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    ResponseEntity<List<EnergiaEolicaResponseDto>> buscarTodosEnergiaEolica();
+    ResponseEntity<Page<EnergiaEolicaResponseDto>> buscarTodosEnergiaEolica(@RequestParam(defaultValue = "0") int page,
+                                                                            @RequestParam(defaultValue = "5") int size,
+                                                                            @RequestParam(defaultValue = "id") String sort,
+                                                                            @RequestParam(defaultValue = "ASC") Sort.Direction direction);
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)

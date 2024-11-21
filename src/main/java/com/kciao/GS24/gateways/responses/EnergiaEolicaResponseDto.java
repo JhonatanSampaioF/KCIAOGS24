@@ -10,8 +10,10 @@ import org.springframework.hateoas.RepresentationModel;
 @Builder
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class EnergiaEolicaResponseDto extends RepresentationModel<EnergiaEolicaResponseDto> {
+    private Integer id;
     private Double potenciaNominal;
     private Double alturaTorre;
     private Double diametroRotor;
     private Double energiaEstimadaGerada;
+    private Integer fk_endereco;
 }

@@ -48,12 +48,14 @@ public class CrudEnderecoImpl implements CrudEndereco {
         Endereco enderecoSalvo = enderecoRepository.save(enderecoASerCriado);
 
         EnderecoResponseDto enderecoResponse = EnderecoResponseDto.builder()
+                .id(enderecoASerCriado.getId())
                 .tipoResidencial(enderecoSalvo.getTipoResidencial())
                 .nome(enderecoSalvo.getNome())
                 .cep(enderecoSalvo.getCep())
                 .tarifa(enderecoSalvo.getTarifa())
                 .gastoMensal(enderecoSalvo.getGastoMensal())
                 .economia(enderecoSalvo.getEconomia())
+                .fk_usuario(enderecoSalvo.getFk_usuario().getId())
                 .build();
 
         enderecoResponse.add(
@@ -73,12 +75,14 @@ public class CrudEnderecoImpl implements CrudEndereco {
 
         if (endereco.isPresent()) {
             EnderecoResponseDto enderecoResponse = EnderecoResponseDto.builder()
+                    .id(endereco.get().getId())
                     .tipoResidencial(endereco.get().getTipoResidencial())
                     .nome(endereco.get().getNome())
                     .cep(endereco.get().getCep())
                     .tarifa(endereco.get().getTarifa())
                     .gastoMensal(endereco.get().getGastoMensal())
                     .economia(endereco.get().getEconomia())
+                    .fk_usuario(endereco.get().getFk_usuario().getId())
                     .build();
             return Optional.of(enderecoResponse);
         } else {
@@ -93,12 +97,14 @@ public class CrudEnderecoImpl implements CrudEndereco {
 
         Page<EnderecoResponseDto> listEnderecoResponse = pageEndereco
                 .map(endereco -> EnderecoResponseDto.builder()
+                        .id(endereco.getId())
                         .tipoResidencial(endereco.getTipoResidencial())
                         .nome(endereco.getNome())
                         .cep(endereco.getCep())
                         .tarifa(endereco.getTarifa())
                         .gastoMensal(endereco.getGastoMensal())
                         .economia(endereco.getEconomia())
+                        .fk_usuario(endereco.getFk_usuario().getId())
                         .build());
 
         return listEnderecoResponse;

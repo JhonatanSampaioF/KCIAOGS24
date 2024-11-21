@@ -45,10 +45,12 @@ public class CrudEnergiaEolicaImpl implements CrudEnergiaEolica {
         EnergiaEolica energiaEolicaSalva = energiaEolicaRepository.save(energiaEolicaASerCriada);
 
         EnergiaEolicaResponseDto energiaEolicaResponse = EnergiaEolicaResponseDto.builder()
+                .id(energiaEolicaSalva.getId())
                 .potenciaNominal(energiaEolicaSalva.getPotenciaNominal())
                 .alturaTorre(energiaEolicaSalva.getAlturaTorre())
                 .diametroRotor(energiaEolicaSalva.getDiametroRotor())
                 .energiaEstimadaGerada(energiaEolicaSalva.getEnergiaEstimadaGerada())
+                .fk_endereco(energiaEolicaSalva.getFk_endereco().getId())
                 .build();
 
         energiaEolicaResponse.add(
@@ -68,10 +70,12 @@ public class CrudEnergiaEolicaImpl implements CrudEnergiaEolica {
 
         if (energiaEolica.isPresent()) {
             EnergiaEolicaResponseDto energiaEolicaResponse = EnergiaEolicaResponseDto.builder()
+                    .id(energiaEolica.get().getId())
                     .potenciaNominal(energiaEolica.get().getPotenciaNominal())
                     .alturaTorre(energiaEolica.get().getAlturaTorre())
                     .diametroRotor(energiaEolica.get().getDiametroRotor())
                     .energiaEstimadaGerada(energiaEolica.get().getEnergiaEstimadaGerada())
+                    .fk_endereco(energiaEolica.get().getFk_endereco().getId())
                     .build();
             return Optional.of(energiaEolicaResponse);
         } else {
@@ -86,10 +90,12 @@ public class CrudEnergiaEolicaImpl implements CrudEnergiaEolica {
 
         Page<EnergiaEolicaResponseDto> pageEnergiaEolicaResponse = pageEnergiaEolica
                 .map(energiaEolica -> EnergiaEolicaResponseDto.builder()
+                        .id(energiaEolica.getId())
                         .potenciaNominal(energiaEolica.getPotenciaNominal())
                         .alturaTorre(energiaEolica.getAlturaTorre())
                         .diametroRotor(energiaEolica.getDiametroRotor())
                         .energiaEstimadaGerada(energiaEolica.getEnergiaEstimadaGerada())
+                        .fk_endereco(energiaEolica.getFk_endereco().getId())
                         .build());
 
         return pageEnergiaEolicaResponse;

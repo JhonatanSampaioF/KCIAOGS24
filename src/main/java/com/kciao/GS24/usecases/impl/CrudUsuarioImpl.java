@@ -35,6 +35,7 @@ public class CrudUsuarioImpl implements CrudUsuario {
         Usuario usuarioSalvo = usuarioRepository.save(usuarioASerCriado);
 
         UsuarioResponseDto usuarioResponse = UsuarioResponseDto.builder()
+                .id(usuarioSalvo.getId())
                 .nome(usuarioSalvo.getNome())
                 .email(usuarioSalvo.getEmail())
                 .build();
@@ -56,6 +57,7 @@ public class CrudUsuarioImpl implements CrudUsuario {
 
         if (usuario.isPresent()) {
             UsuarioResponseDto usuarioResponse = UsuarioResponseDto.builder()
+                    .id(usuario.get().getId())
                     .nome(usuario.get().getNome())
                     .email(usuario.get().getEmail())
                     .build();
@@ -72,6 +74,7 @@ public class CrudUsuarioImpl implements CrudUsuario {
 
         Page<UsuarioResponseDto> pageUsuarioResponse = pageUsuario
                 .map(usuario -> UsuarioResponseDto.builder()
+                        .id(usuario.getId())
                         .nome(usuario.getNome())
                         .email(usuario.getEmail())
                         .build());

@@ -10,10 +10,12 @@ import org.springframework.hateoas.RepresentationModel;
 @Builder
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class EnderecoResponseDto extends RepresentationModel<EnderecoResponseDto> {
+    private Integer id;
     private String tipoResidencial;
     private String nome;
     private String cep;
     private Double tarifa;
     private Double gastoMensal;
     private Double economia;
+    private Integer fk_usuario;
 }

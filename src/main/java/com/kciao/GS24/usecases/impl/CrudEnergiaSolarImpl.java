@@ -44,9 +44,11 @@ public class CrudEnergiaSolarImpl implements CrudEnergiaSolar {
         EnergiaSolar energiaSolarSalva = energiaSolarRepository.save(energiaSolarASerCriada);
         
         EnergiaSolarResponseDto energiaSolarResponse = EnergiaSolarResponseDto.builder()
+                .id(energiaSolarSalva.getId())
                 .areaPlaca(energiaSolarSalva.getAreaPlaca())
                 .irradiacaoSolar(energiaSolarSalva.getIrradiacaoSolar())
                 .energiaEstimadaGerada(energiaSolarSalva.getEnergiaEstimadaGerada())
+                .fk_endereco(energiaSolarSalva.getFk_endereco().getId())
                 .build();
 
         energiaSolarResponse.add(
@@ -67,9 +69,11 @@ public class CrudEnergiaSolarImpl implements CrudEnergiaSolar {
         
         if (energiaSolar.isPresent()) {
             EnergiaSolarResponseDto energiaSolarResponse = EnergiaSolarResponseDto.builder()
+                    .id(energiaSolar.get().getId())
                     .areaPlaca(energiaSolar.get().getAreaPlaca())
                     .irradiacaoSolar(energiaSolar.get().getIrradiacaoSolar())
                     .energiaEstimadaGerada(energiaSolar.get().getEnergiaEstimadaGerada())
+                    .fk_endereco(energiaSolar.get().getFk_endereco().getId())
                     .build();
             return Optional.of(energiaSolarResponse);
         } else {
@@ -84,9 +88,11 @@ public class CrudEnergiaSolarImpl implements CrudEnergiaSolar {
 
         Page<EnergiaSolarResponseDto> pageEnergiaSolarResponse = pageEnergiaSolar
                 .map(energiaSolar -> EnergiaSolarResponseDto.builder()
+                        .id(energiaSolar.getId())
                         .areaPlaca(energiaSolar.getAreaPlaca())
                         .irradiacaoSolar(energiaSolar.getIrradiacaoSolar())
                         .energiaEstimadaGerada(energiaSolar.getEnergiaEstimadaGerada())
+                        .fk_endereco(energiaSolar.getFk_endereco().getId())
                         .build());
 
         return pageEnergiaSolarResponse;

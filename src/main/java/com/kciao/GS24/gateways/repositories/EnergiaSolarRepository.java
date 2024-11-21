@@ -14,8 +14,8 @@ public interface EnergiaSolarRepository extends JpaRepository<EnergiaSolar, Inte
     @Transactional
     @Query(value = "CALL inserir_energia_solar(" +
             ":areaPlaca, " +
-            ":irradiacaoSolar," +
-            ":energiaEstimadaGerada" +
+            ":irradiacaoSolar, " +
+            ":energiaEstimadaGerada, " +
             ":fk_endereco)", nativeQuery = true)
     void insertEnergiaSolar(Integer areaPlaca, Double irradiacaoSolar, Double energiaEstimadaGerada, Integer fk_endereco);
 }

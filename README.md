@@ -23,7 +23,7 @@ Utilizamos o necessário para o funcionamento dos equipamentos de geração de e
 
 
 ## Instrução de como rodar a aplicação e vídeo de teste
-###[Link tutorial](https://youtu.be/JMmKNNNo7GY)
+### [Link tutorial](https://youtu.be/JMmKNNNo7GY)
 
 
 ## Diagramas
@@ -45,7 +45,7 @@ Os endpoints documentados abaixo são funcionais para todos os domínios da apli
 
 
 # Deploy e Teste da API em Docker
-###[Link Deploy]()
+### [Link Deploy]()
 
 ## Arquitetura do Projeto
 

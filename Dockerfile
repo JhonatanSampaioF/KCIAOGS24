@@ -1,15 +1,14 @@
-FROM ubuntu:latest AS base
+# Usar imagem base do OpenJDK
+FROM openjdk:17-jdk-slim
 
-COPY . .
+# Configurar o diretório de trabalho
+WORKDIR /app
 
-RUN apt-get update
-RUN apt-get install openjdk-17-jdk -y
-RUN apt-get install maven -y
-RUN mvn clean install
+# Copiar o arquivo JAR da aplicação (ajuste o nome conforme necessário)
+COPY target/GS24.jar /app/app.jar
 
-FROM openjdk:17-slim
+# Expor a porta da aplicação (ajuste conforme necessário)
 EXPOSE 8080
 
-COPY --from=base target/demo-0.0.1-SNAPSHOT.jar demo.jar
-
-ENTRYPOINT ["java", "-jar", "demo.jar"]
+# Comando para executar a aplicação
+CMD ["java", "-jar", "app.jar"]

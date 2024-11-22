@@ -4,6 +4,7 @@ import com.kciao.GS24.gateways.controllers.interfaces.EnderecoController;
 import com.kciao.GS24.gateways.requests.endereco.EnderecoRequestPatchDto;
 import com.kciao.GS24.gateways.requests.endereco.EnderecoRequestPostDto;
 import com.kciao.GS24.gateways.responses.EnderecoResponseDto;
+import com.kciao.GS24.gateways.responses.EnderecoUsuarioResponseDto;
 import com.kciao.GS24.usecases.impl.CrudEnderecoImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -60,5 +61,14 @@ public class EnderecoControllerImpl implements EnderecoController {
     @Override
     public void deletarEndereco(Integer id) {
         crudEnderecoImpl.delete(id);
+    }
+
+    @Override
+    public ResponseEntity<Page<EnderecoUsuarioResponseDto>> buscarTodosEnderecoDeUmUsuário(int page, int size, String sort, Sort.Direction direction, Integer usuario) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by(direction,sort));
+
+        Page<EnderecoUsuarioResponseDto> pageEnderecoResponse = crudEnderecoImpl.findAllByUser(pageable,usuario);
+
+        return ResponseEntity.ok(pageEnderecoResponse);
     }
 }

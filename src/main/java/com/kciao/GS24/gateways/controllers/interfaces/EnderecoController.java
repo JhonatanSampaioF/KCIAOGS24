@@ -3,6 +3,7 @@ package com.kciao.GS24.gateways.controllers.interfaces;
 import com.kciao.GS24.gateways.requests.endereco.EnderecoRequestPatchDto;
 import com.kciao.GS24.gateways.requests.endereco.EnderecoRequestPostDto;
 import com.kciao.GS24.gateways.responses.EnderecoResponseDto;
+import com.kciao.GS24.gateways.responses.EnderecoUsuarioResponseDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -51,4 +52,15 @@ public interface EnderecoController {
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Deleta o registro de um endereço", description = "Deleta um registro de um endereço.")
     void deletarEndereco(@PathVariable @Valid Integer id);
+
+    @GetMapping("/usuario")
+    @ResponseStatus(HttpStatus.OK)
+    @Operation(summary = "Busca todos os registros de endereços de um usuario", description = "Retorna uma lista paginada de todos os endereços registrados de um usuário.")
+    ResponseEntity<Page<EnderecoUsuarioResponseDto>> buscarTodosEnderecoDeUmUsuário(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "5") int size,
+            @RequestParam(defaultValue = "id") String sort,
+            @RequestParam(defaultValue = "ASC") Sort.Direction direction,
+            @RequestParam Integer usuario
+    );
 }

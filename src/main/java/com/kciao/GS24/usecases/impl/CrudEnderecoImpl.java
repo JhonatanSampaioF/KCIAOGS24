@@ -8,6 +8,7 @@ import com.kciao.GS24.gateways.repositories.UsuarioRepository;
 import com.kciao.GS24.gateways.requests.endereco.EnderecoRequestPatchDto;
 import com.kciao.GS24.gateways.requests.endereco.EnderecoRequestPostDto;
 import com.kciao.GS24.gateways.responses.EnderecoResponseDto;
+import com.kciao.GS24.gateways.responses.EnderecoUsuarioResponseDto;
 import com.kciao.GS24.usecases.interfaces.CrudEndereco;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -146,5 +147,33 @@ public class CrudEnderecoImpl implements CrudEndereco {
     @Override
     public void delete(Integer id) {
         enderecoRepository.deleteById(id);
+    }
+
+    @Override
+    public Page<EnderecoUsuarioResponseDto> findAllByUser(Pageable pageable, Integer id) {
+
+        Page<EnderecoUsuarioResponseDto> pageEndereco = enderecoRepository.findAllEnderecoWithEolicaAndSolar(pageable, id);
+
+        Page<EnderecoUsuarioResponseDto> listEnderecoResponse = pageEndereco
+                .map(endereco -> EnderecoUsuarioResponseDto.builder()
+                        .id(endereco.getId())
+                        .tipoResidencial(endereco.getTipoResidencial())
+                        .nome(endereco.getNome())
+                        .cep(endereco.getCep())
+                        .tarifa(endereco.getTarifa())
+                        .gastoMensal(endereco.getGastoMensal())
+                        .economia(endereco.getEconomia())
+                        .gastoMensal(endereco.getGastoMensal())
+                        .economia(endereco.getEconomia())
+                        .potenciaNominal(endereco.getPotenciaNominal())
+                        .alturaTorre(endereco.getAlturaTorre())
+                        .diametroRotor(endereco.getDiametroRotor())
+                        .energiaEstimadaGeradaEolica(endereco.getEnergiaEstimadaGeradaEolica())
+                        .areaPlaca(endereco.getAreaPlaca())
+                        .irradiacaoSolar(endereco.getIrradiacaoSolar())
+                        .energiaEstimadaGeradaSolar(endereco.getEnergiaEstimadaGeradaSolar())
+                        .build());
+
+        return listEnderecoResponse;
     }
 }

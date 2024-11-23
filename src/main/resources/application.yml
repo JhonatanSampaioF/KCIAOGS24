@@ -6,4 +6,7 @@ spring:
     driver-class-name: oracle.jdbc.OracleDriver
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
+  server:
+    address: 0.0.0.0  # Permite conexões externas
+    port: 8080        # Porta que o Spring Boot escuta

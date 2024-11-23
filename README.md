@@ -28,8 +28,11 @@ Utilizamos o necessário para o funcionamento dos equipamentos de geração de e
 
 ## Diagramas
 </br>
+
 ![WhatsApp Image 2024-11-21 at 19 05 34 (1)](https://github.com/user-attachments/assets/70e6fd17-a86d-431c-b3c4-a7f613695ca8)
+
 </br>
+
 ![WhatsApp Image 2024-11-21 at 19 05 34](https://github.com/user-attachments/assets/42b1d5f8-7fbf-401d-8cfd-cc5e7042e336)
 
 

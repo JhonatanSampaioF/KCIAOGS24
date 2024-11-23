@@ -45,7 +45,7 @@ Os endpoints documentados abaixo são funcionais para todos os domínios da apli
 
 
 # Deploy e Teste da API em Docker
-### [Link Deploy]()
+### [Link Deploy](https://www.youtube.com/watch?v=k8LD8ITsCfQ)
 
 ## Arquitetura do Projeto
 
